@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://6nkgg45r1wy0"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_0q5ff"]
+[ext_resource type="Texture2D" uid="uid://dke6snrreist6" path="res://icon.svg" id="1_hrudx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7x752"]
+radius = 20.0
+height = 60.0
+
+[node name="DebugLevel" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_0q5ff")
+speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(0.500001, 0.5)
+scale = Vector2(0.304688, 0.476563)
+texture = ExtResource("1_hrudx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_7x752")
+
+[node name="Camera2D" type="Camera2D" parent="."]
