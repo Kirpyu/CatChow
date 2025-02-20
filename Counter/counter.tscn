@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu577clpl7mww"]
+
+[ext_resource type="Script" path="res://Counter/counter.gd" id="1_cb0iv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aypr0"]
+size = Vector2(40, 209)
+
+[node name="Counter" type="Area2D"]
+script = ExtResource("1_cb0iv")
+
+[node name="Detector" type="CollisionShape2D" parent="."]
+position = Vector2(0, -104.5)
+shape = SubResource("RectangleShape2D_aypr0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

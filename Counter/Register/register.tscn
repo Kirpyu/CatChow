@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgxweto3lui5v"]
+
+[ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_1yx5k"]
+[ext_resource type="Texture2D" uid="uid://bq6uru6s3hwnv" path="res://Assets/Ingredients/TopBun.png" id="2_6ek14"]
+
+[node name="Register" instance=ExtResource("1_1yx5k")]
+counter_name = "Register"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_6ek14")
