@@ -6,6 +6,9 @@ class_name Player
 var current_counter : Counter
 var counter_name : String
 
+func _ready() -> void:
+	InventoryManager.connect("updated_inventory", stub)
+
 func _physics_process(delta: float) -> void:
 	var walk = Input.get_axis("left", "right")
 	position.x += walk * speed
@@ -25,3 +28,6 @@ func remove_counter():
 	current_counter = null
 	counter_name = "None"
 	print("Removed Counter")
+
+func stub():
+	print("twerkin")

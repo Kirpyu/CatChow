@@ -15,6 +15,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=120
 config/icon="res://icon.svg"
 
+[autoload]
+
+InventoryManager="*res://Global/inventory_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -27,8 +31,10 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://Assets/": "green",
 "res://Counter/": "purple",
+"res://Global/": "teal",
 "res://Levels/": "red",
 "res://Player/": "yellow",
+"res://Resources/": "orange",
 "res://UI/": "pink"
 }
 

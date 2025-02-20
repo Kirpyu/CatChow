@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://y3oxywsxwx7d"]
+[gd_scene load_steps=7 format=3 uid="uid://y3oxywsxwx7d"]
 
-[ext_resource type="Script" path="res://UI/ingredient_bar.gd" id="1_j16o4"]
+[ext_resource type="Script" path="res://UI/item_bar.gd" id="1_j16o4"]
 [ext_resource type="Texture2D" uid="uid://iix73ophkb23" path="res://Assets/UI Assets/ToggleButton.PNG" id="2_xohfy"]
 [ext_resource type="Texture2D" uid="uid://b1gwj6jxsibn3" path="res://Assets/UI Assets/IngredientList.PNG" id="3_742hd"]
 [ext_resource type="Texture2D" uid="uid://bghdr751rh4vj" path="res://Assets/ChefCat.png" id="4_i667j"]
+[ext_resource type="Script" path="res://UI/item_button.gd" id="5_exitk"]
 
 [sub_resource type="Theme" id="Theme_f51p6"]
 
@@ -56,6 +57,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureButton" type="TextureButton" parent="HBoxContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_i667j")
+script = ExtResource("5_exitk")
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/TextureRect/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_i667j")
 
