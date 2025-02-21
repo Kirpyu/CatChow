@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Vegetable" load_steps=3 format=3 uid="uid://qqqjl3fbt6ai"]
+
+[ext_resource type="Script" path="res://Resources/Vegetable.gd" id="1_lq0my"]
+[ext_resource type="Texture2D" uid="uid://bi7e7nwg6lhbo" path="res://Assets/Ingredients/Lettuce.png" id="2_xn2yo"]
+
+[resource]
+script = ExtResource("1_lq0my")
+texture = ExtResource("2_xn2yo")
+item_name = 0
+is_infinite = true
+amount = 999
