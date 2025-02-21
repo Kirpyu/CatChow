@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Order" load_steps=2 format=3 uid="uid://o1uydrneoe81"]
+
+[ext_resource type="Script" path="res://Resources/Order.gd" id="1_664pl"]
+
+[resource]
+script = ExtResource("1_664pl")
+order = Array[int]([12, 8, 13])

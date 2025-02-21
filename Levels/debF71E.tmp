@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://6nkgg45r1wy0"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_0q5ff"]
+[ext_resource type="Texture2D" uid="uid://bghdr751rh4vj" path="res://Assets/ChefCat.png" id="2_nspdn"]
+[ext_resource type="Texture2D" uid="uid://ctuk2ohvjl0gw" path="res://Assets/BG Assets/Floor.PNG" id="2_o1ysd"]
+[ext_resource type="PackedScene" uid="uid://bwspr88oyqm5u" path="res://Counter/Stovetop/stovetop.tscn" id="4_ydlru"]
+[ext_resource type="Texture2D" uid="uid://cxtxfb16angd0" path="res://Assets/BG Assets/Wall.PNG" id="5_fnwpm"]
+[ext_resource type="Texture2D" uid="uid://ba2cfuvtame6w" path="res://Assets/BG Assets/Countertop.PNG" id="6_2hsop"]
+[ext_resource type="Texture2D" uid="uid://bnrfscrtioxd5" path="res://Assets/BG Assets/OrderLine.png" id="8_6ud0l"]
+[ext_resource type="PackedScene" uid="uid://y3oxywsxwx7d" path="res://UI/item_bar.tscn" id="9_u2guk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7x752"]
+radius = 49.0
+height = 156.0
+
+[node name="DebugLevel" type="Node2D"]
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture = ExtResource("5_fnwpm")
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture = ExtResource("2_o1ysd")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_0q5ff")
+speed = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(1.19209e-07, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_nspdn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, -6)
+shape = SubResource("CapsuleShape2D_7x752")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.81, 0.81)
+
+[node name="Countertop" type="Sprite2D" parent="."]
+texture = ExtResource("6_2hsop")
+
+[node name="OrderLine" type="Sprite2D" parent="."]
+position = Vector2(0, 112)
+texture = ExtResource("8_6ud0l")
+
+[node name="Stovetop" parent="." instance=ExtResource("4_ydlru")]
+position = Vector2(-168, 136)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="IngredientBar" parent="CanvasLayer" instance=ExtResource("9_u2guk")]

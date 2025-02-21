@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnt8ug8rl1uvr"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_ku3mr"]
+[ext_resource type="Texture2D" uid="uid://bghdr751rh4vj" path="res://Assets/ChefCat.png" id="2_6ohc1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7x752"]
+radius = 49.0
+height = 156.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("stack_area")]
+script = ExtResource("1_ku3mr")
+speed = 10.0
+stack_area = NodePath("Stack")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_6ohc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -6)
+shape = SubResource("CapsuleShape2D_7x752")
+
+[node name="Stack" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -6.0
+offset_right = 41.0
+offset_bottom = 34.0

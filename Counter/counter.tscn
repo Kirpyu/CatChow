@@ -3,16 +3,22 @@
 [ext_resource type="Script" path="res://Counter/counter.gd" id="1_cb0iv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aypr0"]
-size = Vector2(40, 209)
+size = Vector2(95, 209)
 
-[node name="Counter" type="Area2D"]
+[node name="Counter" type="Area2D" node_paths=PackedStringArray("work_timer")]
 script = ExtResource("1_cb0iv")
+work_timer = NodePath("WorkTimer")
+animated_sprite = NodePath("")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 
 [node name="Detector" type="CollisionShape2D" parent="."]
 position = Vector2(0, -104.5)
 shape = SubResource("RectangleShape2D_aypr0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="WorkTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="WorkTimer" to="." method="_on_work_timer_timeout"]

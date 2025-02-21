@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn8xrxipvmjox"]
+
+[ext_resource type="Script" path="res://UI/OrderSlip/order_slip.gd" id="1_evoy1"]
+[ext_resource type="Texture2D" uid="uid://cgdsqffk7c73v" path="res://Assets/UI Assets/Button.png" id="2_acn6a"]
+[ext_resource type="Resource" uid="uid://o1uydrneoe81" path="res://Resources/Orders/BasicBurger.tres" id="2_g1rym"]
+
+[node name="OrderSlip" type="Control"]
+layout_mode = 3
+anchor_right = 0.158
+anchor_bottom = 0.326
+offset_right = 0.639984
+offset_bottom = -0.0800171
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_evoy1")
+order = ExtResource("2_g1rym")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.026
+anchor_bottom = 1.023
+offset_right = 0.0960083
+offset_bottom = -0.0960083
+texture = ExtResource("2_acn6a")
+patch_margin_left = 74
+patch_margin_top = 74
+patch_margin_right = 67
+patch_margin_bottom = 70
+
+[node name="StackArea" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

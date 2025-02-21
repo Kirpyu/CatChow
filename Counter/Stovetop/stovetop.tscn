@@ -1,12 +1,121 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwspr88oyqm5u"]
+[gd_scene load_steps=17 format=3 uid="uid://bwspr88oyqm5u"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_s7yva"]
 [ext_resource type="Script" path="res://Counter/Stovetop/stovetop.gd" id="2_gw60g"]
-[ext_resource type="Texture2D" uid="uid://d0e71giebekxr" path="res://Assets/Ingredients/Patty.png" id="3_4u5yx"]
+[ext_resource type="Texture2D" uid="uid://dnmqgwibfsa7l" path="res://Assets/Counters/Stove/rawPatty.png" id="3_578yi"]
+[ext_resource type="Texture2D" uid="uid://w014v8whojg6" path="res://Assets/Counters/Stove/defaultStove.png" id="3_ellnn"]
+[ext_resource type="Texture2D" uid="uid://c2vtbrwng6b0n" path="res://Assets/Counters/Stove/burntPatty.png" id="3_ukplv"]
+[ext_resource type="Texture2D" uid="uid://bu2fqeg15oqyo" path="res://Assets/Counters/Stove/cookedPatty.png" id="4_qcl6h"]
 
-[node name="Stovetop" instance=ExtResource("1_s7yva")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy48d"]
+atlas = ExtResource("3_ukplv")
+region = Rect2(0, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiixs"]
+atlas = ExtResource("3_ukplv")
+region = Rect2(350, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol7d4"]
+atlas = ExtResource("3_ukplv")
+region = Rect2(700, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kjdp"]
+atlas = ExtResource("4_qcl6h")
+region = Rect2(0, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar5jc"]
+atlas = ExtResource("4_qcl6h")
+region = Rect2(350, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoh81"]
+atlas = ExtResource("4_qcl6h")
+region = Rect2(700, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4ijr"]
+atlas = ExtResource("3_578yi")
+region = Rect2(0, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuuq7"]
+atlas = ExtResource("3_578yi")
+region = Rect2(350, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47ntv"]
+atlas = ExtResource("3_578yi")
+region = Rect2(700, 0, 350, 280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3866l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy48d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiixs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol7d4")
+}],
+"loop": true,
+"name": &"cooking_burnt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kjdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar5jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoh81")
+}],
+"loop": true,
+"name": &"cooking_cooked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4ijr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuuq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47ntv")
+}],
+"loop": true,
+"name": &"cooking_raw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ellnn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Stovetop" node_paths=PackedStringArray("burn_timer", "animated_sprite") instance=ExtResource("1_s7yva")]
 script = ExtResource("2_gw60g")
+burn_timer = NodePath("BurnTimer")
 counter_name = "Stovetop"
+animated_sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("3_4u5yx")
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -132)
+sprite_frames = SubResource("SpriteFrames_3866l")
+animation = &"cooking_burnt"
+
+[node name="Detector" parent="." index="1"]
+position = Vector2(1.5, -104.5)
+
+[node name="WorkTimer" parent="." index="2"]
+wait_time = 1.5
+one_shot = true
+
+[node name="BurnTimer" type="Timer" parent="." index="3"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="BurnTimer" to="." method="_on_burn_timer_timeout"]

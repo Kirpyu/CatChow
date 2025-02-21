@@ -5,9 +5,14 @@ class_name Player
 @export var speed : float
 var current_counter : Counter
 var counter_name : String
+var stack_pos = Vector2(-57, -115)
+@export var stack_area: Control
+var stack_count = 0
+var item_stack: Array[TextureRect] = []
 
 func _ready() -> void:
-	InventoryManager.connect("updated_inventory", stub)
+	InventoryManager.connect("updated_inventory", update_inventory)
+	InventoryManager.connect("removed_inventory", remove_inventory)
 
 func _physics_process(delta: float) -> void:
 	var walk = Input.get_axis("left", "right")
@@ -15,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("space"):
 		if current_counter:
-			print(current_counter.counter_name)
+			current_counter.do_task()
 		else:
 			print("No Counter")
 
@@ -29,5 +34,21 @@ func remove_counter():
 	counter_name = "None"
 	print("Removed Counter")
 
-func stub():
-	print("twerkin")
+func update_inventory(item: Item) -> void:
+	stack(item)
+
+func stack(item: Item) -> void:
+	stack_count += 1
+	var temp_texture : TextureRect = TextureRect.new()
+	temp_texture.texture = item.texture
+	temp_texture.set_global_position(Vector2(stack_pos.x, stack_pos.y - (15 * stack_count)))
+	stack_area.add_child(temp_texture)
+	item_stack.push_back(temp_texture)
+
+func remove_inventory(item: Item) -> void:
+	remove_item(item)
+	
+func remove_item(_item: Item) -> void:
+	stack_count -= 1
+	var temp_texture : TextureRect = item_stack.pop_back()
+	temp_texture.queue_free()

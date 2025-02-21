@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Vegetable" load_steps=3 format=3 uid="uid://depdithr0oa10"]
+
+[ext_resource type="Script" path="res://Resources/Vegetable.gd" id="1_nm3r8"]
+[ext_resource type="Texture2D" uid="uid://bgjavop07hxw1" path="res://Assets/Ingredients/raw_patty.png" id="2_qhl4p"]
+
+[resource]
+script = ExtResource("1_nm3r8")
+texture = ExtResource("2_qhl4p")
+item_name = 8
+is_infinite = true
+amount = 999

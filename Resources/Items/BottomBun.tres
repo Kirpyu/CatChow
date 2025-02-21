@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dyj7i68qsid5e"]
+
+[ext_resource type="Script" path="res://Resources/Item.gd" id="1_2txs6"]
+[ext_resource type="Texture2D" uid="uid://bpj3mdrklccia" path="res://Assets/Ingredients/BottomBun.png" id="2_7nbvl"]
+
+[resource]
+script = ExtResource("1_2txs6")
+texture = ExtResource("2_7nbvl")
+item_name = 12
+is_infinite = true
+amount = 999

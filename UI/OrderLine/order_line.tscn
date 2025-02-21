@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb1qn7pee6e1y"]
+
+[ext_resource type="Texture2D" uid="uid://bnrfscrtioxd5" path="res://Assets/BG Assets/OrderLine.png" id="1_q4fgn"]
+[ext_resource type="Script" path="res://UI/OrderLine/order_line.gd" id="1_yvruf"]
+
+[node name="OrderLine" type="Control" node_paths=PackedStringArray("slips")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yvruf")
+slips = NodePath("Slips")
+
+[node name="OrderLine" type="Sprite2D" parent="."]
+position = Vector2(1024, 832)
+texture = ExtResource("1_q4fgn")
+
+[node name="Slips" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.163
+anchor_right = 1.0
+anchor_bottom = 0.467
+offset_top = -16.04
+offset_bottom = -0.360016
+grow_horizontal = 2

@@ -1,10 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgxweto3lui5v"]
+[gd_scene load_steps=8 format=3 uid="uid://cgxweto3lui5v"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_1yx5k"]
-[ext_resource type="Texture2D" uid="uid://bq6uru6s3hwnv" path="res://Assets/Ingredients/TopBun.png" id="2_6ek14"]
+[ext_resource type="Script" path="res://Counter/Register/register.gd" id="2_7tvbj"]
+[ext_resource type="Texture2D" uid="uid://cfrs2mi745elv" path="res://Assets/Counters/CashRegister.png" id="2_ah4li"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dume"]
+atlas = ExtResource("2_ah4li")
+region = Rect2(0, 0, 430, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7jsv"]
+atlas = ExtResource("2_ah4li")
+region = Rect2(430, 0, 430, 290)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xv68l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dume")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7jsv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41gy5"]
+size = Vector2(416, 296)
 
 [node name="Register" instance=ExtResource("1_1yx5k")]
+script = ExtResource("2_7tvbj")
 counter_name = "Register"
 
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_6ek14")
+[node name="Sprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_xv68l")
+
+[node name="Detector" parent="." index="1"]
+position = Vector2(-112, -4)
+shape = SubResource("RectangleShape2D_41gy5")

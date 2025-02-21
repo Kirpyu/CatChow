@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://y3oxywsxwx7d"]
+[gd_scene load_steps=10 format=3 uid="uid://y3oxywsxwx7d"]
 
 [ext_resource type="Script" path="res://UI/item_bar.gd" id="1_j16o4"]
 [ext_resource type="Texture2D" uid="uid://iix73ophkb23" path="res://Assets/UI Assets/ToggleButton.PNG" id="2_xohfy"]
 [ext_resource type="Texture2D" uid="uid://b1gwj6jxsibn3" path="res://Assets/UI Assets/IngredientList.PNG" id="3_742hd"]
-[ext_resource type="Texture2D" uid="uid://bghdr751rh4vj" path="res://Assets/ChefCat.png" id="4_i667j"]
-[ext_resource type="Script" path="res://UI/item_button.gd" id="5_exitk"]
+[ext_resource type="PackedScene" uid="uid://bbthctn84ut80" path="res://UI/item_button.tscn" id="4_hrwxo"]
+[ext_resource type="Resource" uid="uid://depdithr0oa10" path="res://Resources/Items/RawPatty.tres" id="5_tlnsx"]
+[ext_resource type="Resource" uid="uid://bw7efaplfbner" path="res://Resources/Items/UpperBun.tres" id="6_e00w2"]
+[ext_resource type="Resource" uid="uid://dyj7i68qsid5e" path="res://Resources/Items/BottomBun.tres" id="7_ufwvp"]
+[ext_resource type="Resource" uid="uid://bovrcnx84307a" path="res://Resources/Items/Sauces/Ketchup.tres" id="8_j0fkl"]
 
 [sub_resource type="Theme" id="Theme_f51p6"]
 
@@ -46,23 +49,29 @@ size_flags_vertical = 4
 texture = ExtResource("3_742hd")
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TextureRect"]
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/TextureRect"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+offset_left = 73.8889
+offset_top = 160.0
+offset_right = 348.889
+offset_bottom = 215.0
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer/TextureRect/VBoxContainer"]
+[node name="ItemButton2" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
-texture_normal = ExtResource("4_i667j")
-script = ExtResource("5_exitk")
+item = ExtResource("6_e00w2")
 
-[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/TextureRect/VBoxContainer"]
+[node name="ItemButton3" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
-texture_normal = ExtResource("4_i667j")
+item = ExtResource("7_ufwvp")
+
+[node name="ItemButton" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
+layout_mode = 2
+item = ExtResource("5_tlnsx")
+
+[node name="ItemButton4" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
+layout_mode = 2
+item = ExtResource("8_j0fkl")
 
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

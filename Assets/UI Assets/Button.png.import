@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnp6fvnhl28fj"
-path="res://.godot/imported/Pickles.png-3ce7302961dc2df7cf0b8dec2b2b25d2.ctex"
+uid="uid://cgdsqffk7c73v"
+path="res://.godot/imported/Button.png-c29680bdb2681d1a063cf8eac8d2527a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ingredients/Pickles.png"
-dest_files=["res://.godot/imported/Pickles.png-3ce7302961dc2df7cf0b8dec2b2b25d2.ctex"]
+source_file="res://Assets/UI Assets/Button.png"
+dest_files=["res://.godot/imported/Button.png-c29680bdb2681d1a063cf8eac8d2527a.ctex"]
 
 [params]
 
