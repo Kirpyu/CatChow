@@ -28,8 +28,13 @@ enum ITEMS{
 }
 
 var chopped_version: Dictionary = {
-	ITEMS.CABBAGE: ITEMS.CHOPPED_CABBAGE
+	ITEMS.CABBAGE: ITEMS.CHOPPED_CABBAGE,
+	ITEMS.CHEESE: ITEMS.CHOPPED_CHEESE,
+	ITEMS.MUSHROOM: ITEMS.CHOPPED_MUSHROOM,
+	ITEMS.PICKLE: ITEMS.CHOPPED_PICKLE,
+	ITEMS.TOMATO: ITEMS.CHOPPED_TOMATO
 }
+
 var item_resources: Dictionary = {
 	ITEMS.COOKED_PATTY: preload("res://Resources/Items/CookedPatty.tres"),
 	ITEMS.KETCHUP: preload("res://Resources/Items/Sauces/Ketchup.tres"),
