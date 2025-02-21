@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Counter/counter.gd" id="1_cb0iv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aypr0"]
-size = Vector2(95, 209)
+size = Vector2(95.5, 209)
 
 [node name="Counter" type="Area2D" node_paths=PackedStringArray("work_timer")]
 script = ExtResource("1_cb0iv")

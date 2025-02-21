@@ -27,12 +27,16 @@ enum ITEMS{
 	CHOPPED_CHEESE
 }
 
+var chopped_version: Dictionary = {
+	ITEMS.CABBAGE: ITEMS.CHOPPED_CABBAGE
+}
 var item_resources: Dictionary = {
 	ITEMS.COOKED_PATTY: preload("res://Resources/Items/CookedPatty.tres"),
 	ITEMS.KETCHUP: preload("res://Resources/Items/Sauces/Ketchup.tres"),
 	ITEMS.UPPER_BUN: preload("res://Resources/Items/UpperBun.tres"),
 	ITEMS.BOTTOM_BUN: preload("res://Resources/Items/BottomBun.tres")
 }
+
 var inventory: Array[Item] = []
 var inventory_names: Array[ITEMS]
 var storage: Dictionary = {}
@@ -43,7 +47,6 @@ func add_storage(item_name: ITEMS) -> void:
 	item.amount += 1
 	storage[item_name] = item.amount
 	emit_signal("added_storage", item)
-	
 
 func remove_storage(item: Item) -> void:
 	if item.item_name not in storage and item.amount >= 1:
