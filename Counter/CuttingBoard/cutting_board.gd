@@ -31,6 +31,7 @@ func do_task():
 
 func _on_work_timer_timeout() -> void:
 	current_state = STATES.IDLE
+	InventoryManager.add_storage(InventoryManager.chopped_version[current_vegetable.item_name])
 #	Chopped version of current_vegetable
 	#InventoryManager.add_storage(InventoryManager.ITEMS.COOKED_PATTY)
 	current_vegetable = null
