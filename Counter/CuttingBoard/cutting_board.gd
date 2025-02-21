@@ -17,10 +17,21 @@ func do_task():
 #	But it shouldnt be too hard if you reference the stovetop, since it only contains a few lines of code
 	
 #	FIRST STEP: Copy all the matches and if statements, these are standard checks
-	
+	match current_state:
+		STATES.IDLE:
+			return
+		STATES.WORKING:
+			return
+	if InventoryManager.inventory.is_empty():
+		error_message()
+		return	
+		
 	var item: Item = InventoryManager.inventory.back()
 	if item is Vegetable:
 		current_vegetable = item
+		InventoryManager.remove_inventory()
+		work_timer.start()
+		current_state = STATES.WORKING
 #		Continue
 	else:
 		print("Wrong sht dummy")
