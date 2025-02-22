@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bnwd5xoatfsnf"]
+
+[ext_resource type="Script" path="res://Resources/Item.gd" id="1_1jrkv"]
+[ext_resource type="Texture2D" uid="uid://bi7e7nwg6lhbo" path="res://Assets/Ingredients/Lettuce.png" id="2_lh0sh"]
+
+[resource]
+script = ExtResource("1_1jrkv")
+texture = ExtResource("2_lh0sh")
+item_name = 14
+is_infinite = false
+amount = 0

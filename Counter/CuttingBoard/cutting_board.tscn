@@ -22,9 +22,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xdvw"]
 size = Vector2(541.875, 215)
 
-[node name="CuttingBoard" instance=ExtResource("1_w3kn2")]
+[node name="CuttingBoard" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_w3kn2")]
 script = ExtResource("2_td8dt")
 counter_name = "ChoppingBoard"
+animated_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(1, -152)
@@ -33,3 +34,7 @@ sprite_frames = SubResource("SpriteFrames_immbw")
 [node name="Detector" parent="." index="1"]
 position = Vector2(-8.9375, -113.5)
 shape = SubResource("RectangleShape2D_8xdvw")
+
+[node name="WorkTimer" parent="." index="2"]
+wait_time = 1.0
+one_shot = true

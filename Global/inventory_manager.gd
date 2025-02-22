@@ -39,7 +39,8 @@ var item_resources: Dictionary = {
 	ITEMS.COOKED_PATTY: preload("res://Resources/Items/CookedPatty.tres"),
 	ITEMS.KETCHUP: preload("res://Resources/Items/Sauces/Ketchup.tres"),
 	ITEMS.UPPER_BUN: preload("res://Resources/Items/UpperBun.tres"),
-	ITEMS.BOTTOM_BUN: preload("res://Resources/Items/BottomBun.tres")
+	ITEMS.BOTTOM_BUN: preload("res://Resources/Items/BottomBun.tres"),
+	ITEMS.CHOPPED_CABBAGE: preload("res://Resources/Items/Vegetables/ChoppedCabbage.tres")
 }
 
 var inventory: Array[Item] = []

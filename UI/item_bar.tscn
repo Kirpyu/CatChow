@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://bw7efaplfbner" path="res://Resources/Items/UpperBun.tres" id="6_e00w2"]
 [ext_resource type="Resource" uid="uid://dyj7i68qsid5e" path="res://Resources/Items/BottomBun.tres" id="7_ufwvp"]
 [ext_resource type="Resource" uid="uid://bovrcnx84307a" path="res://Resources/Items/Sauces/Ketchup.tres" id="8_j0fkl"]
-[ext_resource type="Resource" uid="uid://v8vwpnmedc1n" path="res://Resources/Items/Vegetables/Cabbage.tres" id="9_k0df6"]
+[ext_resource type="Resource" uid="uid://x686ruygqr87" path="res://Resources/Items/Vegetables/WholeCabbage.tres" id="9_iymik"]
 
 [sub_resource type="Theme" id="Theme_f51p6"]
 
@@ -77,6 +77,6 @@ item = ExtResource("8_j0fkl")
 
 [node name="ItemButton5" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
-item = ExtResource("9_k0df6")
+item = ExtResource("9_iymik")
 
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

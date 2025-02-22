@@ -15,6 +15,7 @@ var food_combos: Dictionary = {
 
 func _ready() -> void:
 	add_order(food_combos[FOOD.BASIC_BURGER])
+	print(orders)
 
 func add_order(order: Order):
 	orders.push_back(food_combos[FOOD.BASIC_BURGER].order)
