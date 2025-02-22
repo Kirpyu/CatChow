@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_f3i80")
 order = Array[int]([12, 14, 9, 13])
-value = 15
+value = 12

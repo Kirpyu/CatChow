@@ -13,11 +13,11 @@ region = Rect2(0, 0, 430, 290)
 atlas = ExtResource("2_0wlql")
 region = Rect2(430, 0, 430, 290)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrlrb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7orl2"]
 atlas = ExtResource("3_gr1vh")
 region = Rect2(0, 0, 430, 290)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qty8g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo7e3"]
 atlas = ExtResource("3_gr1vh")
 region = Rect2(430, 0, 430, 290)
 
@@ -32,18 +32,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qrlrb")
+"texture": SubResource("AtlasTexture_7orl2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qty8g")
+"texture": SubResource("AtlasTexture_yo7e3")
 }],
 "loop": true,
 "name": &"working",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="Sink" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_vp7br")]
@@ -54,4 +54,4 @@ animated_sprite = NodePath("Sprite2D")
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -128)
 sprite_frames = SubResource("SpriteFrames_nyabr")
-animation = &"working"
+frame_progress = 0.525139
