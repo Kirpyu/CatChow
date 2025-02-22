@@ -9,7 +9,7 @@ enum STATES{
 	WORKING
 }
 
-var current_state: STATES = STATES.IDLE
+var current_state : STATES = STATES.IDLE
 
 func _ready() -> void:
 	match_animation()
@@ -25,7 +25,7 @@ func do_task():
 		STATES.COOKED:
 			current_state = STATES.IDLE
 			burn_timer.stop()
-			InventoryManager.add_storage(InventoryManager.ITEMS.COOKEDPATTY)
+			InventoryManager.add_storage(InventoryManager.ITEMS.COOKED_PATTY)
 			match_animation()
 			return
 		STATES.BURNT:
@@ -40,7 +40,7 @@ func do_task():
 		return
 
 	var item: Item = InventoryManager.inventory.back()
-	if item.item_name == InventoryManager.ITEMS.RAWPATTY:
+	if item.item_name == InventoryManager.ITEMS.RAW_PATTY:
 		InventoryManager.remove_inventory()
 		work_timer.start()
 		current_state = STATES.WORKING
