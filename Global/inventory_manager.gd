@@ -14,58 +14,72 @@ enum ITEMS{
 	KETCHUP,
 	MAYO,
 	MUSTARD,
-	RAW_PATTY,
-	COOKED_PATTY,
-	CLEAN_DISH,
-	DIRTY_DISH,
-	BOTTOM_BUN,
-	UPPER_BUN,
-	CHOPPED_CABBAGE,
-	CHOPPED_MUSHROOM,
-	CHOPPED_TOMATO,
-	CHOPPED_PICKLE,
-	CHOPPED_CHEESE
+	RAWPATTY,
+	COOKEDPATTY,
+	CLEANDISH,
+	DIRTYDISH,
+	BOTTOMBUN,
+	UPPERBUN,
+	CHOPPEDCABBAGE,
+	CHOPPEDMUSHROOM,
+	CHOPPEDTOMATO,
+	CHOPPEDPICKLE,
+	CHOPPEDCHEESE
 }
 
 # Drive with images: https://drive.google.com/drive/u/0/folders/19MIOBoE8y_InDS-DqDXXwmJtkfnvSMJC
 # TODO: fix item_names, add all of them
 #var item_names: Dictionary = {
 	#ITEMS.CABBAGE: "CABBAGE",
-	#ITEMS.MUSHROOM:
-	#ITEMS.TOMATO:
-	#ITEMS.PICKLE:
-	#ITEMS.CHEESE:
-	#ITEMS.KETCHUP:
-	#ITEMS.MAYO,
-	#ITEMS.MUSTARD,
-	#ITEMS.RAW_PATTY,
-	#ITEMS.COOKED_PATTY,
-	#ITEMS.CLEAN_DISH,
-	#ITEMS.DIRTY_DISH,
-	#ITEMS.BOTTOM_BUN,
-	#ITEMS.UPPER_BUN,
-	#ITEMS.CHOPPED_CABBAGE,
-	#ITEMS.CHOPPED_MUSHROOM,
-	#ITEMS.CHOPPED_TOMATO,
-	#ITEMS.CHOPPED_PICKLE,
-	#ITEMS.CHOPPED_CHEESE
+	#ITEMS.MUSHROOM: "MUSHROOM"
+	#ITEMS.TOMATO: "TOMATO"
+	#ITEMS.PICKLE: "PICKLE"
+	#ITEMS.CHEESE: "CHEESE"
+	#ITEMS.KETCHUP: "KETCHUP"
+	#ITEMS.MAYO: "MAYO"
+	#ITEMS.MUSTARD: "MUSTARD",
+	#ITEMS.RAWPATTY:" RAWPATTY",
+	#ITEMS.COOKEDPATTY: "COOKEDPATTY",
+	#ITEMS.CLEANDISH: "CLEANDISH",
+	#ITEMS.DIRTYDISH: "DIRTYDISH",
+	#ITEMS.BOTTOMBUN: "BOTTOMBUN",
+	#ITEMS.UPPERBUN: "UPPERBUN",
+	#ITEMS.CHOPPEDCABBAGE: "CHOPPEDCABBAGE",
+	#ITEMS.CHOPPEDMUSHROOM: "CHOPPEDMUSHROOM",
+	#ITEMS.CHOPPEDTOMATO: "CHOPPEDTOMATO",
+	#ITEMS.CHOPPEDPICKLE: "CHOPPEDPICKLE", 
+	#ITEMS.CHOPPEDCHEESE: "CHOPPEDCHEESE"
 #}
 
 var chopped_version: Dictionary = {
-	ITEMS.CABBAGE: ITEMS.CHOPPED_CABBAGE,
-	ITEMS.CHEESE: ITEMS.CHOPPED_CHEESE,
-	ITEMS.MUSHROOM: ITEMS.CHOPPED_MUSHROOM,
-	ITEMS.PICKLE: ITEMS.CHOPPED_PICKLE,
-	ITEMS.TOMATO: ITEMS.CHOPPED_TOMATO
+	ITEMS.CABBAGE: ITEMS.CHOPPEDCABBAGE,
+	ITEMS.CHEESE: ITEMS.CHOPPEDCHEESE,
+	ITEMS.MUSHROOM: ITEMS.CHOPPEDMUSHROOM,
+	ITEMS.PICKLE: ITEMS.CHOPPEDPICKLE,
+	ITEMS.TOMATO: ITEMS.CHOPPEDTOMATO
 }
 
 #TODO: Add all resources
 var item_resources: Dictionary = {
-	ITEMS.COOKED_PATTY: preload("res://Resources/Items/CookedPatty.tres"),
+	ITEMS.COOKEDPATTY: preload("res://Resources/Items/CookedPatty.tres"),
+	ITEMS.RAWPATTY: preload("res://Resources/Items/RawPatty.tres"),
 	ITEMS.KETCHUP: preload("res://Resources/Items/Sauces/Ketchup.tres"),
-	ITEMS.UPPER_BUN: preload("res://Resources/Items/UpperBun.tres"),
-	ITEMS.BOTTOM_BUN: preload("res://Resources/Items/BottomBun.tres"),
-	ITEMS.CHOPPED_CABBAGE: preload("res://Resources/Items/Vegetables/ChoppedCabbage.tres")
+	ITEMS.MUSTARD: preload("res://Resources/Items/Sauces/Mustard.tres"),
+	ITEMS.MAYO: preload("res://Resources/Items/Sauces/Mayo.tres"),
+	ITEMS.UPPERBUN: preload("res://Resources/Items/UpperBun.tres"),
+	ITEMS.BOTTOMBUN: preload("res://Resources/Items/BottomBun.tres"),
+	ITEMS.CHOPPEDCABBAGE: preload("res://Resources/Items/Vegetables/ChoppedCabbage.tres"),
+	ITEMS.CHOPPEDCHEESE: preload("res://Resources/Items/Vegetables/ChoppedCheese.tres"),
+	ITEMS.CHOPPEDMUSHROOM: preload("res://Resources/Items/Vegetables/ChoppedMushroom.tres"),
+	ITEMS.CHOPPEDPICKLE: preload("res://Resources/Items/Vegetables/ChoppedPickle.tres"),
+	ITEMS.CHOPPEDTOMATO: preload("res://Resources/Items/Vegetables/ChoppedTomato.tres"),
+	ITEMS.CABBAGE: preload("res://Resources/Items/Vegetables/WholeCabbage.tres"),
+	ITEMS.CHEESE: preload("res://Resources/Items/Vegetables/WholeCheese.tres"),
+	ITEMS.MUSHROOM: preload("res://Resources/Items/Vegetables/WholeMushroom.tres"),
+	ITEMS.PICKLE: preload("res://Resources/Items/Vegetables/WholePickle.tres"),
+	ITEMS.TOMATO: preload("res://Resources/Items/Vegetables/WholeTomato.tres"),
+	ITEMS.CLEANDISH: preload("res://Resources/Items/CleanDish.tres"),
+	ITEMS.DIRTYDISH: preload("res://Resources/Items/DirtyDish.tres"),
 }
 
 var inventory: Array[Item] = []
