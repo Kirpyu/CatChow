@@ -41,7 +41,7 @@ func stack(item: Item) -> void:
 	stack_count += 1
 	var temp_texture : TextureRect = TextureRect.new()
 	temp_texture.texture = item.texture
-	temp_texture.set_global_position(Vector2(stack_pos.x, stack_pos.y - (15 * stack_count)))
+	temp_texture.set_global_position(Vector2(stack_pos.x, stack_pos.y - (12.5 * stack_count)))
 	stack_area.add_child(temp_texture)
 	item_stack.push_back(temp_texture)
 

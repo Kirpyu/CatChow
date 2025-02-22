@@ -48,3 +48,7 @@ func handle_added_storage(item: Item):
 		buttons.append(button)
 		%Buttons.add_child(button)
 		button.item_button.connect("pressed", on_item_button_pressed.bind(button))
+
+
+func _on_button_pressed() -> void:
+	InventoryManager.refund_inventory()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bwspr88oyqm5u"]
+[gd_scene load_steps=19 format=3 uid="uid://bwspr88oyqm5u"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_s7yva"]
 [ext_resource type="Script" path="res://Counter/Stovetop/stovetop.gd" id="2_gw60g"]
@@ -42,6 +42,14 @@ region = Rect2(350, 0, 350, 280)
 [sub_resource type="AtlasTexture" id="AtlasTexture_47ntv"]
 atlas = ExtResource("3_578yi")
 region = Rect2(700, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26ecu"]
+atlas = ExtResource("3_ellnn")
+region = Rect2(0, 0, 350, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72m4n"]
+atlas = ExtResource("3_ellnn")
+region = Rect2(350, 0, 350, 280)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3866l"]
 animations = [{
@@ -89,11 +97,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_ellnn")
+"texture": SubResource("AtlasTexture_26ecu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72m4n")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [node name="Stovetop" node_paths=PackedStringArray("burn_timer", "animated_sprite") instance=ExtResource("1_s7yva")]
@@ -105,7 +116,7 @@ animated_sprite = NodePath("Sprite2D")
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -132)
 sprite_frames = SubResource("SpriteFrames_3866l")
-animation = &"cooking_burnt"
+frame_progress = 0.0221687
 
 [node name="Detector" parent="." index="1"]
 position = Vector2(1.5, -104.5)

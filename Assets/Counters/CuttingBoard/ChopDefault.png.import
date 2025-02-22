@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://12baygbrlqet"
-path="res://.godot/imported/CashRegister.png-61b917b3ef5767ef26c0d567df5134c0.ctex"
+uid="uid://bxg71jxi2r1gt"
+path="res://.godot/imported/ChopDefault.png-e1a3e59430ed340d83506865f80607d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Counters/CashRegister.png"
-dest_files=["res://.godot/imported/CashRegister.png-61b917b3ef5767ef26c0d567df5134c0.ctex"]
+source_file="res://Assets/Counters/CuttingBoard/ChopDefault.png"
+dest_files=["res://.godot/imported/ChopDefault.png-e1a3e59430ed340d83506865f80607d7.ctex"]
 
 [params]
 

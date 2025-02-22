@@ -27,6 +27,30 @@ enum ITEMS{
 	CHOPPED_CHEESE
 }
 
+# Drive with images: https://drive.google.com/drive/u/0/folders/19MIOBoE8y_InDS-DqDXXwmJtkfnvSMJC
+# TODO: fix item_names, add all of them
+#var item_names: Dictionary = {
+	#ITEMS.CABBAGE: "CABBAGE",
+	#ITEMS.MUSHROOM:
+	#ITEMS.TOMATO:
+	#ITEMS.PICKLE:
+	#ITEMS.CHEESE:
+	#ITEMS.KETCHUP:
+	#ITEMS.MAYO,
+	#ITEMS.MUSTARD,
+	#ITEMS.RAW_PATTY,
+	#ITEMS.COOKED_PATTY,
+	#ITEMS.CLEAN_DISH,
+	#ITEMS.DIRTY_DISH,
+	#ITEMS.BOTTOM_BUN,
+	#ITEMS.UPPER_BUN,
+	#ITEMS.CHOPPED_CABBAGE,
+	#ITEMS.CHOPPED_MUSHROOM,
+	#ITEMS.CHOPPED_TOMATO,
+	#ITEMS.CHOPPED_PICKLE,
+	#ITEMS.CHOPPED_CHEESE
+#}
+
 var chopped_version: Dictionary = {
 	ITEMS.CABBAGE: ITEMS.CHOPPED_CABBAGE,
 	ITEMS.CHEESE: ITEMS.CHOPPED_CHEESE,
@@ -35,6 +59,7 @@ var chopped_version: Dictionary = {
 	ITEMS.TOMATO: ITEMS.CHOPPED_TOMATO
 }
 
+#TODO: Add all resources
 var item_resources: Dictionary = {
 	ITEMS.COOKED_PATTY: preload("res://Resources/Items/CookedPatty.tres"),
 	ITEMS.KETCHUP: preload("res://Resources/Items/Sauces/Ketchup.tres"),
@@ -76,6 +101,13 @@ func remove_inventory():
 	inventory_names.pop_back()
 	emit_signal("removed_inventory", item)
 
+func refund_inventory():
+	while inventory:
+		var item = inventory.back()
+		if not item.is_infinite:
+			add_storage(item.item_name)
+		remove_inventory()
+
 func clear_inventory():
-	inventory = []
-	inventory_names = []
+	while inventory:
+		remove_inventory()

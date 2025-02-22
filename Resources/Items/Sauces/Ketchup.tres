@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bovrcnx84307a"]
 
 [ext_resource type="Script" path="res://Resources/Item.gd" id="1_kyog2"]
-[ext_resource type="Texture2D" uid="uid://c17vfo5qkp2nq" path="res://Assets/Ingredients/Ketchup.png" id="2_equ6s"]
+[ext_resource type="Texture2D" uid="uid://0s8au2rtf0qk" path="res://Assets/Ingredients/Katchup.png" id="2_ovq5l"]
 
 [resource]
 script = ExtResource("1_kyog2")
-texture = ExtResource("2_equ6s")
+texture = ExtResource("2_ovq5l")
 item_name = 5
 is_infinite = false
 amount = 3

@@ -1,26 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://co4i3b258l3kx"]
+[gd_scene load_steps=10 format=3 uid="uid://co4i3b258l3kx"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_w3kn2"]
-[ext_resource type="Texture2D" uid="uid://cbe2a2ceaycj" path="res://Assets/Counters/Sink/SinkDefault.png" id="2_3oppv"]
 [ext_resource type="Script" path="res://Counter/CuttingBoard/cutting_board.gd" id="2_td8dt"]
+[ext_resource type="Texture2D" uid="uid://bxg71jxi2r1gt" path="res://Assets/Counters/CuttingBoard/ChopDefault.png" id="3_p5ald"]
+[ext_resource type="Texture2D" uid="uid://dskxfacsrbbu6" path="res://Assets/Counters/CuttingBoard/ChopChopping.png" id="4_vlnrf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bn8q4"]
-atlas = ExtResource("2_3oppv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_csnum"]
+atlas = ExtResource("3_p5ald")
 region = Rect2(0, 0, 430, 290)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_immbw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5o5p"]
+atlas = ExtResource("4_vlnrf")
+region = Rect2(0, 0, 430, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s00m1"]
+atlas = ExtResource("4_vlnrf")
+region = Rect2(430, 0, 430, 290)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mp2p7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bn8q4")
+"texture": SubResource("AtlasTexture_csnum")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5o5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s00m1")
+}],
+"loop": true,
+"name": &"working",
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xdvw"]
-size = Vector2(541.875, 215)
+size = Vector2(160, 215)
 
 [node name="CuttingBoard" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_w3kn2")]
 script = ExtResource("2_td8dt")
@@ -28,11 +48,12 @@ counter_name = "ChoppingBoard"
 animated_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(1, -152)
-sprite_frames = SubResource("SpriteFrames_immbw")
+position = Vector2(0, -104)
+scale = Vector2(0.800725, 0.800725)
+sprite_frames = SubResource("SpriteFrames_mp2p7")
 
 [node name="Detector" parent="." index="1"]
-position = Vector2(-8.9375, -113.5)
+position = Vector2(0, -113.5)
 shape = SubResource("RectangleShape2D_8xdvw")
 
 [node name="WorkTimer" parent="." index="2"]

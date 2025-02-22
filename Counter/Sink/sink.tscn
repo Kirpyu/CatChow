@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://bi58e4e7r71fr"]
+
+[ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_vp7br"]
+[ext_resource type="Texture2D" uid="uid://y1urht8e5hqj" path="res://Assets/Counters/Sink/SinkDefault.png" id="2_0wlql"]
+[ext_resource type="Script" path="res://Counter/Sink/sink.gd" id="2_7xwid"]
+[ext_resource type="Texture2D" uid="uid://dk5xgo4shgpig" path="res://Assets/Counters/Sink/SinkWashing.png" id="3_gr1vh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4wth"]
+atlas = ExtResource("2_0wlql")
+region = Rect2(0, 0, 430, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnr4j"]
+atlas = ExtResource("2_0wlql")
+region = Rect2(430, 0, 430, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrlrb"]
+atlas = ExtResource("3_gr1vh")
+region = Rect2(0, 0, 430, 290)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qty8g"]
+atlas = ExtResource("3_gr1vh")
+region = Rect2(430, 0, 430, 290)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyabr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4wth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnr4j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrlrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qty8g")
+}],
+"loop": true,
+"name": &"working",
+"speed": 5.0
+}]
+
+[node name="Sink" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_vp7br")]
+script = ExtResource("2_7xwid")
+counter_name = "Sink"
+animated_sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -128)
+sprite_frames = SubResource("SpriteFrames_nyabr")
+animation = &"working"
