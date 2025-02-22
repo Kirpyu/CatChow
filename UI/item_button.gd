@@ -16,5 +16,5 @@ func _ready() -> void:
 
 func handle_updated_storage(given_item: Item):
 	if item.amount > 0 and given_item.item_name == item.item_name:
-		var item_name = InventoryManager.ITEMS.keys()[item.item_name] #This is atrocious fix this
+		var item_name = InventoryManager.item_names[item.item_name]
 		counter.text = item_name + " x" + str(item.amount)

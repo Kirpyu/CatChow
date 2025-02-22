@@ -20,7 +20,7 @@ func do_task():
 		return	
 		
 	var item: Item = InventoryManager.inventory.back()
-	if item.item_name == InventoryManager.ITEMS.DIRTYDISH:
+	if item.item_name == InventoryManager.ITEMS.DIRTY_DISH:
 		InventoryManager.remove_inventory()
 		work_timer.start()
 		current_state = STATES.WORKING
@@ -30,7 +30,7 @@ func do_task():
 
 func _on_work_timer_timeout() -> void:
 	current_state = STATES.IDLE
-	InventoryManager.add_storage(InventoryManager.ITEMS.CLEANDISH)
+	InventoryManager.add_storage(InventoryManager.ITEMS.CLEAN_DISH)
 	match_animation()
 			
 func match_animation() -> void:

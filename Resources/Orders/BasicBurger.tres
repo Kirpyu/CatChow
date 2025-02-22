@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_664pl")
 order = Array[int]([12, 9, 13])
-value = 0
+value = 12
