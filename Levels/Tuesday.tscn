@@ -1,0 +1,83 @@
+[gd_scene load_steps=18 format=3 uid="uid://dapeyxkaltc86"]
+
+[ext_resource type="Script" path="res://Levels/Level.gd" id="1_afmtw"]
+[ext_resource type="Texture2D" uid="uid://cxtxfb16angd0" path="res://Assets/BG Assets/Wall.PNG" id="2_aluyr"]
+[ext_resource type="Texture2D" uid="uid://ctuk2ohvjl0gw" path="res://Assets/BG Assets/Floor.PNG" id="3_4u52d"]
+[ext_resource type="PackedScene" uid="uid://dnt8ug8rl1uvr" path="res://Player/player.tscn" id="4_dwog2"]
+[ext_resource type="Texture2D" uid="uid://ba2cfuvtame6w" path="res://Assets/BG Assets/Countertop.PNG" id="5_p5p7d"]
+[ext_resource type="PackedScene" uid="uid://bwspr88oyqm5u" path="res://Counter/Stovetop/stovetop.tscn" id="6_xt4u0"]
+[ext_resource type="PackedScene" uid="uid://cgxweto3lui5v" path="res://Counter/Register/register.tscn" id="7_23lqp"]
+[ext_resource type="PackedScene" uid="uid://co4i3b258l3kx" path="res://Counter/CuttingBoard/cutting_board.tscn" id="8_e5gms"]
+[ext_resource type="PackedScene" uid="uid://bi58e4e7r71fr" path="res://Counter/Sink/sink.tscn" id="9_fr6gn"]
+[ext_resource type="PackedScene" uid="uid://daxf0iqr2uv54" path="res://Counter/DirtyPlateStack/dirty_plate_stack.tscn" id="10_vdovr"]
+[ext_resource type="PackedScene" uid="uid://dlbvyne4kh1i7" path="res://UI/CharacterInterface/character_interace.tscn" id="11_88ob0"]
+[ext_resource type="PackedScene" uid="uid://y3oxywsxwx7d" path="res://UI/item_bar.tscn" id="12_jgaw8"]
+[ext_resource type="PackedScene" uid="uid://ds6h7r6pafrel" path="res://UI/PauseScreen/pause_screen.tscn" id="13_oucnm"]
+[ext_resource type="PackedScene" uid="uid://cb1qn7pee6e1y" path="res://UI/OrderLine/order_line.tscn" id="14_8nktt"]
+[ext_resource type="PackedScene" uid="uid://c62y6tg5d410f" path="res://UI/NextScreen/next_screen.tscn" id="14_guy8v"]
+[ext_resource type="PackedScene" uid="uid://bmh8hfn3aws38" path="res://Global/event_manager.tscn" id="15_peno0"]
+[ext_resource type="AudioStream" uid="uid://b05grp7qdi0rm" path="res://Assets/MainTheme/MamaMia.mp3" id="16_10buj"]
+
+[node name="Tuesday" type="Node2D"]
+script = ExtResource("1_afmtw")
+day = 2
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Wall" type="Sprite2D" parent="Background"]
+texture = ExtResource("2_aluyr")
+
+[node name="Floor" type="Sprite2D" parent="Background"]
+texture = ExtResource("3_4u52d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.81, 0.81)
+
+[node name="Player" parent="." instance=ExtResource("4_dwog2")]
+
+[node name="Countertop" type="Sprite2D" parent="."]
+texture = ExtResource("5_p5p7d")
+
+[node name="Counters" type="Node2D" parent="."]
+
+[node name="Stovetop" parent="Counters" instance=ExtResource("6_xt4u0")]
+position = Vector2(-960, 176)
+
+[node name="Stovetop2" parent="Counters" instance=ExtResource("6_xt4u0")]
+position = Vector2(-752, 208)
+
+[node name="Register" parent="Counters" instance=ExtResource("7_23lqp")]
+position = Vector2(0, 80)
+
+[node name="CuttingBoard" parent="Counters" instance=ExtResource("8_e5gms")]
+position = Vector2(-384, 208)
+
+[node name="Sink" parent="Counters" instance=ExtResource("9_fr6gn")]
+position = Vector2(824, 200)
+
+[node name="DirtyPlateStack" parent="Counters" instance=ExtResource("10_vdovr")]
+position = Vector2(512, 176)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CharacterInterace" parent="CanvasLayer" instance=ExtResource("11_88ob0")]
+
+[node name="IngredientBar" parent="CanvasLayer" instance=ExtResource("12_jgaw8")]
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("13_oucnm")]
+
+[node name="NextScreen" parent="CanvasLayer" instance=ExtResource("14_guy8v")]
+
+[node name="OrderLine2" parent="." instance=ExtResource("14_8nktt")]
+offset_left = -1016.0
+offset_top = -752.0
+offset_right = -1016.0
+offset_bottom = -752.0
+
+[node name="EventManager" parent="." instance=ExtResource("15_peno0")]
+
+[node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_10buj")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

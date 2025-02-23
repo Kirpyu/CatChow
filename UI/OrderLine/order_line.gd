@@ -13,8 +13,8 @@ var current_day : RoundManager.DAYS
 func _ready() -> void:
 	OrderManager.connect("added_order", add_slip)
 	OrderManager.connect("completed_order", complete_slip)
+	RoundManager.connect("updated_day", update_day)
 	base_slip_timer = slip_timer.wait_time
-	current_day = RoundManager.current_day
 
 func add_slip(order: Order):
 	var temp_slip: OrderSlip = load("res://UI/OrderSlip/order_slip.tscn").instantiate()
@@ -52,3 +52,24 @@ func _on_slip_timer_timeout() -> void:
 	OrderManager.add_order(OrderManager.food_combos[rand_order])
 	slip_timer.wait_time = randi_range(base_slip_timer - 3, base_slip_timer + 3)
 	slip_timer.start()
+
+func update_day(day: RoundManager.DAYS):
+	current_day = day
+	match_day()
+	
+func match_day():
+	match current_day:
+		RoundManager.DAYS.TUTORIAL_STAGE:
+			base_slip_timer = 1000
+			slip_timer.stop()
+			OrderManager.add_order(OrderManager.food_combos[OrderManager.FOOD.LETTUCE_BURGER])
+		RoundManager.DAYS.MONDAY:
+			base_slip_timer = 15
+		RoundManager.DAYS.TUESDAY:
+			base_slip_timer = 14
+		RoundManager.DAYS.WEDNESDAY:
+			base_slip_timer = 13.5
+		RoundManager.DAYS.THURSDAY:
+			base_slip_timer = 13.5
+		RoundManager.DAYS.FRIDAY:
+			base_slip_timer = 12.5

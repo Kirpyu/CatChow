@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_xa0aj")
-order = Array[int]([10, 12, 18, 14, 9, 13])
+order = Array[int]([10, 12, 14, 9, 18, 13])
 value = 23

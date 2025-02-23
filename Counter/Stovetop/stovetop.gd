@@ -59,6 +59,7 @@ func match_animation():
 			%Burning.stop()
 		STATES.COOKED:
 			animated_sprite.play("cooking_cooked")
+			%Finished.play()
 		STATES.BURNT:
 			animated_sprite.play("cooking_burnt")
 			%Cooking.stop()
@@ -77,12 +78,11 @@ func debuff():
 	animated_sprite.modulate = Color.INDIAN_RED
 	debuffed = true
 	work_timer.wait_time = base_work_timer * 0.5
-	burn_timer.wait_time = base_burn_timer - 2.5
+	burn_timer.wait_time = 2
 	%WorkBar.max_value = work_timer.wait_time
 	%BurnBar.max_value = burn_timer.wait_time
 	debuff_timer.start()
 	%Debuffed.play()
-	pass
 
 func match_day():
 	add_to_group("debuffable")

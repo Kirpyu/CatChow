@@ -37,6 +37,7 @@ counter_name = "Register"
 animated_sprite = NodePath("Sprite2D")
 
 [node name="DirtyPlateTImer" type="Timer" parent="." index="0"]
+wait_time = 2.0
 one_shot = true
 
 [node name="Sprite2D" parent="." index="1"]

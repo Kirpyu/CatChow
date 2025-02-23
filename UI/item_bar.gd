@@ -11,6 +11,7 @@ var buttons: Array[ItemButton] = []
 
 func _ready() -> void:
 	InventoryManager.connect("added_storage", handle_added_storage)
+	InventoryManager.connect("added_button", handle_added_button)
 	for button: ItemButton in %Buttons.get_children():
 		buttons.append(button)
 		button.item_button.connect("pressed", on_item_button_pressed.bind(button))
@@ -50,6 +51,14 @@ func handle_added_storage(item: Item):
 		%Buttons.add_child(button)
 		button.item_button.connect("pressed", on_item_button_pressed.bind(button))
 
+func handle_added_button(item: Item):
+	var button : ItemButton = load("res://UI/item_button.tscn").instantiate()
+	button.item = item
+	buttons.append(button)
+	%Buttons.add_child(button)
+	button.item_button.connect("pressed", on_item_button_pressed.bind(button))
+
 
 func _on_button_pressed() -> void:
 	InventoryManager.refund_inventory()
+	%ButtonRefund.play()

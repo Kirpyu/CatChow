@@ -1,0 +1,86 @@
+[gd_scene load_steps=19 format=3 uid="uid://dkqwq6dji5gu7"]
+
+[ext_resource type="Script" path="res://Levels/Level.gd" id="1_quoy6"]
+[ext_resource type="Texture2D" uid="uid://cxtxfb16angd0" path="res://Assets/BG Assets/Wall.PNG" id="2_4qhig"]
+[ext_resource type="Texture2D" uid="uid://ctuk2ohvjl0gw" path="res://Assets/BG Assets/Floor.PNG" id="3_qvred"]
+[ext_resource type="PackedScene" uid="uid://dnt8ug8rl1uvr" path="res://Player/player.tscn" id="4_dsae1"]
+[ext_resource type="Texture2D" uid="uid://ba2cfuvtame6w" path="res://Assets/BG Assets/Countertop.PNG" id="5_hi2md"]
+[ext_resource type="PackedScene" uid="uid://bwspr88oyqm5u" path="res://Counter/Stovetop/stovetop.tscn" id="6_3um41"]
+[ext_resource type="PackedScene" uid="uid://cgxweto3lui5v" path="res://Counter/Register/register.tscn" id="7_rknpg"]
+[ext_resource type="PackedScene" uid="uid://co4i3b258l3kx" path="res://Counter/CuttingBoard/cutting_board.tscn" id="8_mn5ny"]
+[ext_resource type="PackedScene" uid="uid://bi58e4e7r71fr" path="res://Counter/Sink/sink.tscn" id="9_x3ltf"]
+[ext_resource type="PackedScene" uid="uid://daxf0iqr2uv54" path="res://Counter/DirtyPlateStack/dirty_plate_stack.tscn" id="10_bnvvc"]
+[ext_resource type="PackedScene" uid="uid://dlbvyne4kh1i7" path="res://UI/CharacterInterface/character_interace.tscn" id="11_p51we"]
+[ext_resource type="PackedScene" uid="uid://y3oxywsxwx7d" path="res://UI/item_bar.tscn" id="12_mql2b"]
+[ext_resource type="PackedScene" uid="uid://ds6h7r6pafrel" path="res://UI/PauseScreen/pause_screen.tscn" id="13_d6vea"]
+[ext_resource type="PackedScene" uid="uid://c62y6tg5d410f" path="res://UI/NextScreen/next_screen.tscn" id="14_kdp38"]
+[ext_resource type="PackedScene" uid="uid://cb1qn7pee6e1y" path="res://UI/OrderLine/order_line.tscn" id="14_lkpmr"]
+[ext_resource type="PackedScene" uid="uid://c1igbc7fuokf4" path="res://UI/black_out.tscn" id="15_gdb2f"]
+[ext_resource type="PackedScene" uid="uid://bmh8hfn3aws38" path="res://Global/event_manager.tscn" id="16_fnqay"]
+[ext_resource type="AudioStream" uid="uid://b05grp7qdi0rm" path="res://Assets/MainTheme/MamaMia.mp3" id="17_n5qtu"]
+
+[node name="Thursday" type="Node2D"]
+script = ExtResource("1_quoy6")
+day = 4
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Wall" type="Sprite2D" parent="Background"]
+texture = ExtResource("2_4qhig")
+
+[node name="Floor" type="Sprite2D" parent="Background"]
+texture = ExtResource("3_qvred")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.81, 0.81)
+
+[node name="Player" parent="." instance=ExtResource("4_dsae1")]
+
+[node name="Countertop" type="Sprite2D" parent="."]
+texture = ExtResource("5_hi2md")
+
+[node name="Counters" type="Node2D" parent="."]
+
+[node name="Stovetop" parent="Counters" instance=ExtResource("6_3um41")]
+position = Vector2(-960, 176)
+
+[node name="Stovetop2" parent="Counters" instance=ExtResource("6_3um41")]
+position = Vector2(-752, 208)
+
+[node name="Register" parent="Counters" instance=ExtResource("7_rknpg")]
+position = Vector2(0, 80)
+
+[node name="CuttingBoard" parent="Counters" instance=ExtResource("8_mn5ny")]
+position = Vector2(-384, 208)
+
+[node name="Sink" parent="Counters" instance=ExtResource("9_x3ltf")]
+position = Vector2(824, 200)
+
+[node name="DirtyPlateStack" parent="Counters" instance=ExtResource("10_bnvvc")]
+position = Vector2(512, 176)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CharacterInterace" parent="CanvasLayer" instance=ExtResource("11_p51we")]
+
+[node name="IngredientBar" parent="CanvasLayer" instance=ExtResource("12_mql2b")]
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("13_d6vea")]
+
+[node name="NextScreen" parent="CanvasLayer" instance=ExtResource("14_kdp38")]
+
+[node name="OrderLine2" parent="." instance=ExtResource("14_lkpmr")]
+offset_left = -1016.0
+offset_top = -752.0
+offset_right = -1016.0
+offset_bottom = -752.0
+
+[node name="BlackOut" parent="." instance=ExtResource("15_gdb2f")]
+
+[node name="EventManager" parent="." instance=ExtResource("16_fnqay")]
+
+[node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_n5qtu")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

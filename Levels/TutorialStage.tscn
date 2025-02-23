@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=3 uid="uid://drenmpy2xrh5g"]
+
+[ext_resource type="Script" path="res://Levels/Level.gd" id="1_qg2t7"]
+[ext_resource type="Texture2D" uid="uid://cxtxfb16angd0" path="res://Assets/BG Assets/Wall.PNG" id="2_wkl1p"]
+[ext_resource type="Texture2D" uid="uid://ctuk2ohvjl0gw" path="res://Assets/BG Assets/Floor.PNG" id="3_8cbrl"]
+[ext_resource type="Theme" uid="uid://2jjqc3wtau36" path="res://Theme/GameTheme.tres" id="4_1uj22"]
+[ext_resource type="PackedScene" uid="uid://dnt8ug8rl1uvr" path="res://Player/player.tscn" id="4_h2p38"]
+[ext_resource type="Texture2D" uid="uid://ba2cfuvtame6w" path="res://Assets/BG Assets/Countertop.PNG" id="5_bprp5"]
+[ext_resource type="PackedScene" uid="uid://bwspr88oyqm5u" path="res://Counter/Stovetop/stovetop.tscn" id="6_65m5f"]
+[ext_resource type="PackedScene" uid="uid://cgxweto3lui5v" path="res://Counter/Register/register.tscn" id="7_4i1a3"]
+[ext_resource type="PackedScene" uid="uid://co4i3b258l3kx" path="res://Counter/CuttingBoard/cutting_board.tscn" id="8_xq3ot"]
+[ext_resource type="PackedScene" uid="uid://bi58e4e7r71fr" path="res://Counter/Sink/sink.tscn" id="9_0ahx5"]
+[ext_resource type="PackedScene" uid="uid://daxf0iqr2uv54" path="res://Counter/DirtyPlateStack/dirty_plate_stack.tscn" id="10_q8bb7"]
+[ext_resource type="PackedScene" uid="uid://dlbvyne4kh1i7" path="res://UI/CharacterInterface/character_interace.tscn" id="11_74gyn"]
+[ext_resource type="PackedScene" uid="uid://y3oxywsxwx7d" path="res://UI/item_bar.tscn" id="12_s4ugg"]
+[ext_resource type="PackedScene" uid="uid://ds6h7r6pafrel" path="res://UI/PauseScreen/pause_screen.tscn" id="13_hp2i5"]
+[ext_resource type="PackedScene" uid="uid://c62y6tg5d410f" path="res://UI/NextScreen/next_screen.tscn" id="14_qygnv"]
+[ext_resource type="PackedScene" uid="uid://cb1qn7pee6e1y" path="res://UI/OrderLine/order_line.tscn" id="15_p82dq"]
+[ext_resource type="PackedScene" uid="uid://c1igbc7fuokf4" path="res://UI/black_out.tscn" id="16_c8tvf"]
+[ext_resource type="PackedScene" uid="uid://bmh8hfn3aws38" path="res://Global/event_manager.tscn" id="17_q8knc"]
+[ext_resource type="AudioStream" uid="uid://b05grp7qdi0rm" path="res://Assets/MainTheme/MamaMia.mp3" id="18_swokf"]
+
+[node name="TutorialStage" type="Node2D"]
+script = ExtResource("1_qg2t7")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Wall" type="Sprite2D" parent="Background"]
+texture = ExtResource("2_wkl1p")
+
+[node name="Floor" type="Sprite2D" parent="Background"]
+texture = ExtResource("3_8cbrl")
+
+[node name="Label" type="Label" parent="Background"]
+offset_left = 608.0
+offset_top = -112.0
+offset_right = 1141.0
+offset_bottom = 143.0
+theme = ExtResource("4_1uj22")
+theme_override_font_sizes/font_size = 64
+text = "Click here to select
+ingredients ->"
+
+[node name="Label2" type="Label" parent="Background"]
+offset_left = -272.0
+offset_top = -504.0
+offset_right = 273.0
+offset_bottom = -249.0
+theme = ExtResource("4_1uj22")
+theme_override_font_sizes/font_size = 64
+text = "Move with A and D
+Interact with SPACE
+
+Submit your order with
+the register"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Background"]
+offset_left = -1136.0
+offset_top = -136.0
+offset_right = -225.0
+offset_bottom = 119.0
+theme = ExtResource("4_1uj22")
+theme_override_font_sizes/font_size = 64
+text = "Above are the tasks we have!
+Click the ingredients
+and chuck some meat and veggies
+down these appliances"
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.81, 0.81)
+
+[node name="Player" parent="." instance=ExtResource("4_h2p38")]
+
+[node name="Countertop" type="Sprite2D" parent="."]
+texture = ExtResource("5_bprp5")
+
+[node name="Counters" type="Node2D" parent="."]
+
+[node name="Stovetop" parent="Counters" instance=ExtResource("6_65m5f")]
+position = Vector2(-960, 176)
+
+[node name="Stovetop2" parent="Counters" instance=ExtResource("6_65m5f")]
+position = Vector2(-752, 208)
+
+[node name="Register" parent="Counters" instance=ExtResource("7_4i1a3")]
+position = Vector2(0, 80)
+
+[node name="CuttingBoard" parent="Counters" instance=ExtResource("8_xq3ot")]
+position = Vector2(-384, 208)
+
+[node name="Sink" parent="Counters" instance=ExtResource("9_0ahx5")]
+position = Vector2(824, 200)
+
+[node name="DirtyPlateStack" parent="Counters" instance=ExtResource("10_q8bb7")]
+position = Vector2(512, 176)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CharacterInterace" parent="CanvasLayer" instance=ExtResource("11_74gyn")]
+
+[node name="Button" type="Button" parent="CanvasLayer/CharacterInterace"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -216.0
+offset_right = 397.0
+offset_bottom = 25.0001
+scale = Vector2(0.75, 0.75)
+theme = ExtResource("4_1uj22")
+theme_override_font_sizes/font_size = 128
+text = "NEXT"
+
+[node name="IngredientBar" parent="CanvasLayer" instance=ExtResource("12_s4ugg")]
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("13_hp2i5")]
+
+[node name="NextScreen" parent="CanvasLayer" instance=ExtResource("14_qygnv")]
+
+[node name="OrderLine2" parent="." instance=ExtResource("15_p82dq")]
+offset_left = -1016.0
+offset_top = -752.0
+offset_right = -1016.0
+offset_bottom = -752.0
+
+[node name="BlackOut" parent="." instance=ExtResource("16_c8tvf")]
+
+[node name="EventManager" parent="." instance=ExtResource("17_q8knc")]
+
+[node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_swokf")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="CanvasLayer/CharacterInterace/Button" to="CanvasLayer/CharacterInterace" method="_on_button_pressed"]

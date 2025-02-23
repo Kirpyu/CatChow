@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://daxf0iqr2uv54"]
+[gd_scene load_steps=6 format=3 uid="uid://daxf0iqr2uv54"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_rc51i"]
 [ext_resource type="Script" path="res://Counter/DirtyPlateStack/dirty_plate_stack.gd" id="2_uixuk"]
+[ext_resource type="AudioStream" uid="uid://dx484alpps7hg" path="res://Assets/Sound Effects/PickUpPlate.mp3" id="3_7jvq6"]
+[ext_resource type="AudioStream" uid="uid://bj7vvjjoe0q84" path="res://Assets/Sound Effects/SetPlate3.mp3" id="4_48uho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1iw2"]
 size = Vector2(38, 140)
@@ -15,3 +17,11 @@ position = Vector2(1, -69)
 shape = SubResource("RectangleShape2D_k1iw2")
 
 [node name="StackArea" type="Node2D" parent="." index="3"]
+
+[node name="PickUpPlate" type="AudioStreamPlayer2D" parent="." index="4"]
+unique_name_in_owner = true
+stream = ExtResource("3_7jvq6")
+
+[node name="SetPlate" type="AudioStreamPlayer2D" parent="." index="5"]
+unique_name_in_owner = true
+stream = ExtResource("4_48uho")

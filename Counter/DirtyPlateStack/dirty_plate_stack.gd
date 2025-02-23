@@ -14,9 +14,11 @@ func do_task():
 		InventoryManager.add_storage(InventoryManager.ITEMS.DIRTY_DISH)
 		temp_dish.queue_free()
 		stack_count -= 1
+		%PickUpPlate.play()
 
 func add_dirty_plate():
 	stack(InventoryManager.item_resources[InventoryManager.ITEMS.DIRTY_DISH])
+	%SetPlate.play()
 
 func stack(item: Item) -> void:
 	stack_count += 1

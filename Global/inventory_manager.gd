@@ -57,21 +57,51 @@ var chopped_version: Dictionary = {
 	ITEMS.TOMATO: ITEMS.CHOPPED_TOMATO
 }
 
-#TODO: Add all resources
 var item_resources: Dictionary = {
+	ITEMS.MUSTARD: preload("res://Resources/Items/Sauces/Mustard.tres"),
+	ITEMS.RAW_PATTY: preload("res://Resources/Items/RawPatty.tres"),
 	ITEMS.COOKED_PATTY: preload("res://Resources/Items/CookedPatty.tres"),
 	ITEMS.KETCHUP: preload("res://Resources/Items/Sauces/Ketchup.tres"),
+	ITEMS.MAYO: preload("res://Resources/Items/Sauces/Mayo.tres"),
 	ITEMS.UPPER_BUN: preload("res://Resources/Items/UpperBun.tres"),
 	ITEMS.BOTTOM_BUN: preload("res://Resources/Items/BottomBun.tres"),
+	ITEMS.CABBAGE: preload("res://Resources/Items/Vegetables/WholeCabbage.tres"),
+	ITEMS.MUSHROOM: preload("res://Resources/Items/Vegetables/WholeMushroom.tres"),
+	ITEMS.TOMATO: preload("res://Resources/Items/Vegetables/WholeTomato.tres"),
+	ITEMS.PICKLE: preload("res://Resources/Items/Vegetables/WholePickle.tres"),
+	ITEMS.CHEESE: preload("res://Resources/Items/Vegetables/WholeCheese.tres"),
 	ITEMS.CHOPPED_CABBAGE: preload("res://Resources/Items/Vegetables/ChoppedCabbage.tres"),
 	ITEMS.CHOPPED_CHEESE: preload("res://Resources/Items/Vegetables/ChoppedCheese.tres"),
 	ITEMS.CHOPPED_TOMATO: preload("res://Resources/Items/Vegetables/ChoppedTomato.tres"),
 	ITEMS.CHOPPED_PICKLE: preload("res://Resources/Items/Vegetables/ChoppedPickle.tres"),
 	ITEMS.CHOPPED_MUSHROOM: preload("res://Resources/Items/Vegetables/ChoppedMushroom.tres"),
 	ITEMS.DIRTY_DISH: preload("res://Resources/Items/DirtyPlate.tres"),
-	ITEMS.CLEAN_DISH: preload("res://Resources/Items/CleanPlate.tres")
+	ITEMS.CLEAN_DISH: preload("res://Resources/Items/CleanPlate.tres"),
 }
 
+var daily_storage : Dictionary = {
+	RoundManager.DAYS.TUTORIAL_STAGE: [
+		
+	],
+	RoundManager.DAYS.MONDAY: [
+		
+	],
+	RoundManager.DAYS.TUESDAY: [
+		ITEMS.MUSTARD
+	],
+	RoundManager.DAYS.WEDNESDAY: [
+		ITEMS.CHEESE, ITEMS.MUSTARD
+	],
+	RoundManager.DAYS.THURSDAY: [
+		ITEMS.CHEESE, ITEMS.MUSTARD, ITEMS.TOMATO
+	],
+	RoundManager.DAYS.FRIDAY: [
+		ITEMS.CHEESE, ITEMS.MUSTARD, ITEMS.TOMATO
+	],
+	RoundManager.DAYS.ENDING_STAGE: [
+		
+	],
+}
 var inventory: Array[Item] = []
 var inventory_names: Array[ITEMS]
 var storage: Dictionary = {}
@@ -82,6 +112,10 @@ func add_storage(item_name: ITEMS) -> void:
 	item.amount += 1
 	storage[item_name] = item.amount
 	emit_signal("added_storage", item)
+
+signal added_button
+func add_button(item_name: ITEMS) -> void:
+	emit_signal("added_button", item_resources[item_name])
 
 func remove_storage(item: Item) -> void:
 	if item.item_name not in storage and item.amount >= 1:

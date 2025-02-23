@@ -10,9 +10,9 @@
 [ext_resource type="Resource" uid="uid://dyj7i68qsid5e" path="res://Resources/Items/BottomBun.tres" id="7_ufwvp"]
 [ext_resource type="Resource" uid="uid://x686ruygqr87" path="res://Resources/Items/Vegetables/WholeCabbage.tres" id="9_iymik"]
 [ext_resource type="Resource" uid="uid://ca2cc0sj37uoh" path="res://Resources/Items/CleanPlate.tres" id="9_s2eyp"]
-[ext_resource type="Resource" uid="uid://vh1il8gdvgg4" path="res://Resources/Items/Vegetables/WholeCheese.tres" id="11_y2wf4"]
 [ext_resource type="Resource" uid="uid://bovrcnx84307a" path="res://Resources/Items/Sauces/Ketchup.tres" id="12_401lr"]
 [ext_resource type="AudioStream" uid="uid://c30oulhahsghv" path="res://Assets/Sound Effects/PickUpItem.mp3" id="13_vjrvu"]
+[ext_resource type="AudioStream" uid="uid://csqv5kaard1yr" path="res://Assets/Sound Effects/Unpause.mp3" id="14_jd15b"]
 
 [sub_resource type="Theme" id="Theme_f51p6"]
 
@@ -54,46 +54,43 @@ size_flags_vertical = 4
 texture = ExtResource("3_742hd")
 stretch_mode = 4
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TextureRect"]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 151.0
-offset_right = 1007.0
-offset_bottom = 1929.0
-scale = Vector2(0.5, 0.5)
-theme = ExtResource("4_r213e")
-
-[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/TextureRect/ScrollContainer"]
+[node name="Buttons" type="HFlowContainer" parent="HBoxContainer/TextureRect"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.137
+anchor_right = 0.931
+anchor_bottom = 0.829
+offset_left = -6.93464
+offset_top = 7.76176
+offset_right = 488.905
+offset_bottom = 799.506
+scale = Vector2(0.5, 0.5)
 
-[node name="ItemButton2" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
+[node name="ItemButton2" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
 item = ExtResource("6_e00w2")
 
-[node name="ItemButton3" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
+[node name="ItemButton3" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
 item = ExtResource("7_ufwvp")
 
-[node name="ItemButton" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
+[node name="ItemButton" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
 item = ExtResource("5_tlnsx")
 
-[node name="ItemButton4" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
-layout_mode = 2
-item = ExtResource("9_s2eyp")
-
-[node name="ItemButton5" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
+[node name="ItemButton5" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
 item = ExtResource("9_iymik")
 
-[node name="ItemButton6" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
-layout_mode = 2
-item = ExtResource("11_y2wf4")
-
-[node name="ItemButton7" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
+[node name="ItemButton7" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
 item = ExtResource("12_401lr")
+
+[node name="ItemButton4" parent="HBoxContainer/TextureRect/Buttons" instance=ExtResource("4_hrwxo")]
+layout_mode = 2
+item = ExtResource("9_s2eyp")
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 10)
@@ -116,6 +113,10 @@ text = "RESET"
 [node name="ButtonClicked" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("13_vjrvu")
+
+[node name="ButtonRefund" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("14_jd15b")
 
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

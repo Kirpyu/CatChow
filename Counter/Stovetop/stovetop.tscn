@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bwspr88oyqm5u"]
+[gd_scene load_steps=24 format=3 uid="uid://bwspr88oyqm5u"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_s7yva"]
 [ext_resource type="Script" path="res://Counter/Stovetop/stovetop.gd" id="2_gw60g"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://ce372pdejnxrg" path="res://Assets/Sound Effects/Sizzling1.mp3" id="8_to6ap"]
 [ext_resource type="AudioStream" uid="uid://b7r7blc5svmw8" path="res://Assets/Sound Effects/Burning.mp3" id="9_vhmbf"]
 [ext_resource type="AudioStream" uid="uid://dlhnb6ylovcqy" path="res://Assets/Sound Effects/LightFlicker.mp3" id="10_vcx6q"]
+[ext_resource type="AudioStream" uid="uid://1dv4i6txxmiy" path="res://Assets/Sound Effects/HappyHmm.mp3" id="11_lmhgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fy48d"]
 atlas = ExtResource("3_ukplv")
@@ -131,7 +132,7 @@ wait_time = 7.5
 one_shot = true
 
 [node name="BurnTimer" type="Timer" parent="." index="3"]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 
 [node name="WorkBar" parent="." index="4" node_paths=PackedStringArray("timer") instance=ExtResource("7_6ics6")]
@@ -172,6 +173,10 @@ pitch_scale = 1.5
 unique_name_in_owner = true
 stream = ExtResource("10_vcx6q")
 volume_db = -5.0
+
+[node name="Finished" type="AudioStreamPlayer2D" parent="." index="10"]
+unique_name_in_owner = true
+stream = ExtResource("11_lmhgg")
 
 [connection signal="timeout" from="BurnTimer" to="." method="_on_burn_timer_timeout"]
 [connection signal="timeout" from="DebuffTimer" to="." method="_on_debuff_timer_timeout"]

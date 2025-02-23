@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bxeu6c7queyrg"]
+
+[ext_resource type="FontFile" uid="uid://bssq6v8g8lhqj" path="res://Assets/Font/Chalkboard-Regular.ttf" id="1_hsbv7"]
+[ext_resource type="StyleBox" uid="uid://rqq5b4k0nwrg" path="res://Theme/SmallButton.tres" id="2_38ksd"]
+
+[resource]
+Button/colors/font_color = Color(0.839216, 0.439216, 0.352941, 1)
+Button/colors/font_focus_color = Color(0.839216, 0.439216, 0.352941, 1)
+Button/colors/font_hover_color = Color(0.658338, 0.658341, 0.658341, 1)
+Button/colors/font_pressed_color = Color(0.839216, 0.439216, 0.352941, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("1_hsbv7")
+Button/styles/disabled = null
+Button/styles/focus = ExtResource("2_38ksd")
+Button/styles/hover = ExtResource("2_38ksd")
+Button/styles/normal = ExtResource("2_38ksd")
+Button/styles/pressed = ExtResource("2_38ksd")

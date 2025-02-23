@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://c62y6tg5d410f"]
+
+[ext_resource type="Script" path="res://UI/NextScreen/next_screen.gd" id="1_s61m3"]
+[ext_resource type="Texture2D" uid="uid://cgdsqffk7c73v" path="res://Assets/UI Assets/Button.png" id="2_ixvp7"]
+[ext_resource type="Theme" uid="uid://2jjqc3wtau36" path="res://Theme/GameTheme.tres" id="3_07w64"]
+[ext_resource type="Theme" uid="uid://bxeu6c7queyrg" path="res://Theme/MainMenuTheme.tres" id="4_0gcri"]
+[ext_resource type="AudioStream" uid="uid://cwn3r4524mmsw" path="res://Assets/Sound Effects/ButtonClick.mp3" id="5_s1ir3"]
+
+[node name="NextScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.85
+offset_left = -0.640015
+offset_top = -0.279999
+offset_right = 0.559937
+offset_bottom = 15.64
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_s61m3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ixvp7")
+patch_margin_left = 80
+patch_margin_top = 88
+patch_margin_right = 71
+patch_margin_bottom = 76
+
+[node name="MainHeading" type="Label" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.96
+offset_top = 86.28
+offset_right = 351.04
+offset_bottom = 236.28
+grow_horizontal = 2
+theme = ExtResource("3_07w64")
+theme_override_colors/font_color = Color(0.839216, 0.439216, 0.352941, 1)
+theme_override_font_sizes/font_size = 164
+text = "SURVIVED!"
+
+[node name="SubHeading" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.96
+offset_top = -131.68
+offset_right = 166.04
+offset_bottom = -58.68
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_07w64")
+theme_override_colors/font_color = Color(0.839216, 0.439216, 0.352941, 1)
+text = "SUBLABEL"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.495
+anchor_top = 0.817
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.314
+offset_top = -10.6586
+offset_right = 20.0
+offset_bottom = -111.92
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("4_0gcri")
+text = "NEXT"
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("4_0gcri")
+text = "RESTART"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("4_0gcri")
+text = "QUIT"
+
+[node name="ButtonPressed" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_s1ir3")
+volume_db = -8.0
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

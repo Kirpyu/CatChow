@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_l8r0t")
-order = Array[int]([12, 9, 5, 13])
+order = Array[int]([10, 12, 9, 5, 13])
 value = 15

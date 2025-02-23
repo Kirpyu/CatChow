@@ -9,10 +9,13 @@ var stack_pos = Vector2(-57, -115)
 @export var stack_area: Control
 var stack_count = 0
 var item_stack: Array[TextureRect] = []
+
+@export var animated_sprite : AnimatedSprite2D
+
 func _ready() -> void:
 	InventoryManager.connect("updated_inventory", update_inventory)
 	InventoryManager.connect("removed_inventory", remove_inventory)
-
+	
 func _physics_process(delta: float) -> void:
 	velocity = Vector2(Input.get_axis("left", "right"), 0)
 	position += velocity * speed
@@ -20,18 +23,19 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		if current_counter:
 			current_counter.do_task()
-		else:
-			print("No Counter")
 
+	if velocity != Vector2(0, 0):
+		animated_sprite.play("moving")
+	else:
+		animated_sprite.play("idle")
+		
 func update_counter(counter: Counter):
 	current_counter = counter
 	counter_name = current_counter.get_counter_name()
-	print("Changed Counter To " + counter_name)
 
 func remove_counter():
 	current_counter = null
 	counter_name = "None"
-	print("Removed Counter")
 
 func update_inventory(item: Item) -> void:
 	stack(item)

@@ -4,9 +4,7 @@ extends Node2D
 var base_time : float = 0
 var debuffable : Array = []
 func _ready() -> void:
-	for node in get_tree().get_nodes_in_group("debuffable"):
-		debuffable.append(node)
-	match_day()
+	RoundManager.connect("updated_day", match_day)
 
 func _on_event_timer_timeout() -> void:
 	if debuffable.size() <= 0:
@@ -15,6 +13,7 @@ func _on_event_timer_timeout() -> void:
 	var node = null
 	var temp_removed = []
 	
+	print(debuffable)
 	while debuffable.size() > 0:
 		var random_int = randi_range(0, debuffable.size() - 1)
 		print(random_int)
@@ -32,9 +31,22 @@ func _on_event_timer_timeout() -> void:
 	
 	debuffable.append_array(temp_removed)
 
-func match_day() -> void:
-	match RoundManager.current_day:
+func match_day(day) -> void:
+	for node in get_tree().get_nodes_in_group("debuffable"):
+		debuffable.append(node)
+		
+	match day:
+		RoundManager.DAYS.TUTORIAL_STAGE:
+			base_time = 100000
 		RoundManager.DAYS.MONDAY:
 			base_time = 20
+		RoundManager.DAYS.TUESDAY:
+			base_time = 18.5
+		RoundManager.DAYS.WEDNESDAY:
+			base_time = 16
+		RoundManager.DAYS.THURSDAY:
+			base_time = 16
+		RoundManager.DAYS.FRIDAY:
+			base_time = 13.5
 	event_timer.wait_time = base_time
 	event_timer.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi58e4e7r71fr"]
+[gd_scene load_steps=14 format=3 uid="uid://bi58e4e7r71fr"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_vp7br"]
 [ext_resource type="Texture2D" uid="uid://y1urht8e5hqj" path="res://Assets/Counters/Sink/SinkDefault.png" id="2_0wlql"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dk5xgo4shgpig" path="res://Assets/Counters/Sink/SinkWashing.png" id="3_gr1vh"]
 [ext_resource type="PackedScene" uid="uid://v40knt2daal7" path="res://UI/ProgressBar/progress_bar.tscn" id="5_3n0m5"]
 [ext_resource type="AudioStream" uid="uid://0nyi61k2cewe" path="res://Assets/Sound Effects/HandWash.mp3" id="6_b3p1u"]
+[ext_resource type="AudioStream" uid="uid://qxe0wccx3l2v" path="res://Assets/Sound Effects/SetPlate1.mp3" id="7_rgtmo"]
+[ext_resource type="AudioStream" uid="uid://c2n5yek8xanyn" path="res://Assets/Sound Effects/DishwasherBreak (LOUD).mp3" id="8_7p0yo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4wth"]
 atlas = ExtResource("2_0wlql")
@@ -48,8 +50,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Sink" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_vp7br")]
+[node name="Sink" node_paths=PackedStringArray("debuff_timer", "animated_sprite") instance=ExtResource("1_vp7br")]
 script = ExtResource("2_7xwid")
+debuff_timer = NodePath("DebuffTimer")
 counter_name = "Sink"
 animated_sprite = NodePath("Sprite2D")
 
@@ -59,7 +62,7 @@ sprite_frames = SubResource("SpriteFrames_nyabr")
 frame_progress = 0.525139
 
 [node name="WorkTimer" parent="." index="2"]
-wait_time = 1.0
+wait_time = 1.5
 one_shot = true
 
 [node name="TextureProgressBar" parent="." index="3" node_paths=PackedStringArray("timer") instance=ExtResource("5_3n0m5")]
@@ -73,4 +76,18 @@ timer = NodePath("../WorkTimer")
 unique_name_in_owner = true
 stream = ExtResource("6_b3p1u")
 volume_db = -15.0
-stream_paused = true
+
+[node name="PickUpPlate" type="AudioStreamPlayer2D" parent="." index="5"]
+unique_name_in_owner = true
+stream = ExtResource("7_rgtmo")
+
+[node name="DebuffTimer" type="Timer" parent="." index="6"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Break" type="AudioStreamPlayer2D" parent="." index="7"]
+unique_name_in_owner = true
+stream = ExtResource("8_7p0yo")
+volume_db = -32.0
+
+[connection signal="timeout" from="DebuffTimer" to="." method="_on_debuff_timer_timeout"]
