@@ -8,8 +8,8 @@
 [ext_resource type="Resource" uid="uid://depdithr0oa10" path="res://Resources/Items/RawPatty.tres" id="5_tlnsx"]
 [ext_resource type="Resource" uid="uid://bw7efaplfbner" path="res://Resources/Items/UpperBun.tres" id="6_e00w2"]
 [ext_resource type="Resource" uid="uid://dyj7i68qsid5e" path="res://Resources/Items/BottomBun.tres" id="7_ufwvp"]
-[ext_resource type="Resource" uid="uid://bovrcnx84307a" path="res://Resources/Items/Sauces/Ketchup.tres" id="8_j0fkl"]
 [ext_resource type="Resource" uid="uid://x686ruygqr87" path="res://Resources/Items/Vegetables/WholeCabbage.tres" id="9_iymik"]
+[ext_resource type="Resource" uid="uid://ca2cc0sj37uoh" path="res://Resources/Items/CleanPlate.tres" id="9_s2eyp"]
 
 [sub_resource type="Theme" id="Theme_f51p6"]
 
@@ -78,7 +78,7 @@ item = ExtResource("5_tlnsx")
 
 [node name="ItemButton4" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2
-item = ExtResource("8_j0fkl")
+item = ExtResource("9_s2eyp")
 
 [node name="ItemButton5" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
 layout_mode = 2

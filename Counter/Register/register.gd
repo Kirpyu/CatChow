@@ -1,5 +1,6 @@
 extends Counter
 
+@export var dirty_plate_timer: Timer
 func _ready() -> void:
 	animated_sprite.play("default")
 	OrderManager.connect("gained_coins", add_floating_text)
@@ -9,6 +10,7 @@ func do_task():
 		if InventoryManager.inventory_names == OrderManager.orders[i]:
 			OrderManager.complete_order(i)
 			InventoryManager.clear_inventory()
+			dirty_plate_timer.start()
 			return
 
 func add_floating_text(amt: int):
@@ -16,3 +18,6 @@ func add_floating_text(amt: int):
 	floating_text.text = "+" + str(amt)
 	floating_text.modulate = Color.LIME_GREEN
 	self.add_child(floating_text)
+
+func _on_dirty_plate_timer_timeout() -> void:
+	InventoryManager.add_dirty_plate()

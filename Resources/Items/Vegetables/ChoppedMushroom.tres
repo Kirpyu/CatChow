@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dm7a76yvlq42l"]
+
+[ext_resource type="Script" path="res://Resources/Item.gd" id="1_q16on"]
+[ext_resource type="Texture2D" uid="uid://o3rs0brf5e8y" path="res://Assets/Ingredients/Mushroom.png" id="2_xgmwc"]
+
+[resource]
+script = ExtResource("1_q16on")
+texture = ExtResource("2_xgmwc")
+item_name = 15
+is_infinite = false
+amount = 0

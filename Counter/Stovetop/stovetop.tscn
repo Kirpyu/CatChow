@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bwspr88oyqm5u"]
+[gd_scene load_steps=20 format=3 uid="uid://bwspr88oyqm5u"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_s7yva"]
 [ext_resource type="Script" path="res://Counter/Stovetop/stovetop.gd" id="2_gw60g"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://w014v8whojg6" path="res://Assets/Counters/Stove/defaultStove.png" id="3_ellnn"]
 [ext_resource type="Texture2D" uid="uid://c2vtbrwng6b0n" path="res://Assets/Counters/Stove/burntPatty.png" id="3_ukplv"]
 [ext_resource type="Texture2D" uid="uid://bu2fqeg15oqyo" path="res://Assets/Counters/Stove/cookedPatty.png" id="4_qcl6h"]
+[ext_resource type="PackedScene" uid="uid://v40knt2daal7" path="res://UI/ProgressBar/progress_bar.tscn" id="7_6ics6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fy48d"]
 atlas = ExtResource("3_ukplv")
@@ -128,5 +129,22 @@ one_shot = true
 [node name="BurnTimer" type="Timer" parent="." index="3"]
 wait_time = 3.0
 one_shot = true
+
+[node name="TextureProgressBar" parent="." index="4" node_paths=PackedStringArray("timer") instance=ExtResource("7_6ics6")]
+offset_left = -136.0
+offset_top = -256.0
+offset_right = 134.0
+offset_bottom = -206.0
+timer = NodePath("../WorkTimer")
+
+[node name="TextureProgressBar2" parent="." index="5" node_paths=PackedStringArray("timer") instance=ExtResource("7_6ics6")]
+offset_left = -136.0
+offset_top = -256.0
+offset_right = 134.0
+offset_bottom = -206.0
+value = 50.0
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+timer = NodePath("../BurnTimer")
 
 [connection signal="timeout" from="BurnTimer" to="." method="_on_burn_timer_timeout"]

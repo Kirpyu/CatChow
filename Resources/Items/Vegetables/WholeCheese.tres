@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Vegetable" load_steps=3 format=3 uid="uid://vh1il8gdvgg4"]
+
+[ext_resource type="Script" path="res://Resources/Vegetable.gd" id="1_uvcdw"]
+[ext_resource type="Texture2D" uid="uid://damoder8gfcla" path="res://Assets/Ingredients/CheeseWhole.png" id="2_sa62w"]
+
+[resource]
+script = ExtResource("1_uvcdw")
+texture = ExtResource("2_sa62w")
+item_name = 4
+is_infinite = true
+amount = 999

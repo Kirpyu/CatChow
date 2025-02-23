@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dbuwbo1aiqgyi"]
+
+[ext_resource type="Script" path="res://Resources/Item.gd" id="1_hv00j"]
+[ext_resource type="Texture2D" uid="uid://cjm2at6libi8p" path="res://Assets/Ingredients/Tomato.png" id="2_8tcse"]
+
+[resource]
+script = ExtResource("1_hv00j")
+texture = ExtResource("2_8tcse")
+item_name = 16
+is_infinite = false
+amount = 0

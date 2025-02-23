@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Vegetable" load_steps=3 format=3 uid="uid://bfh733i26s67l"]
+
+[ext_resource type="Script" path="res://Resources/Vegetable.gd" id="1_jqyaj"]
+[ext_resource type="Texture2D" uid="uid://rxa12iyh1exg" path="res://Assets/Ingredients/PickleWhole.png" id="2_yfvua"]
+
+[resource]
+script = ExtResource("1_jqyaj")
+texture = ExtResource("2_yfvua")
+item_name = 3
+is_infinite = true
+amount = 999

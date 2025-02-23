@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ccpploa0flhwp"]
+
+[ext_resource type="Script" path="res://Resources/Item.gd" id="1_ai6bd"]
+[ext_resource type="Texture2D" uid="uid://bhl2ww05awtiq" path="res://Assets/Ingredients/Mustard.png" id="2_q8gje"]
+
+[resource]
+script = ExtResource("1_ai6bd")
+texture = ExtResource("2_q8gje")
+item_name = 7
+is_infinite = true
+amount = 999

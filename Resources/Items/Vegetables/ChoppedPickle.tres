@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bttxmabvep5ot"]
+
+[ext_resource type="Script" path="res://Resources/Item.gd" id="1_on41p"]
+[ext_resource type="Texture2D" uid="uid://cxq1s8u2v4qd" path="res://Assets/Ingredients/Pickle.png" id="2_nst3f"]
+
+[resource]
+script = ExtResource("1_on41p")
+texture = ExtResource("2_nst3f")
+item_name = 17
+is_infinite = false
+amount = 0

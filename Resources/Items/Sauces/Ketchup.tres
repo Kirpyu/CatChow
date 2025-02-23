@@ -7,5 +7,5 @@
 script = ExtResource("1_kyog2")
 texture = ExtResource("2_ovq5l")
 item_name = 5
-is_infinite = false
-amount = 3
+is_infinite = true
+amount = 999

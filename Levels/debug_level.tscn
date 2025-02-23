@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6nkgg45r1wy0"]
+[gd_scene load_steps=14 format=3 uid="uid://6nkgg45r1wy0"]
 
 [ext_resource type="Texture2D" uid="uid://ctuk2ohvjl0gw" path="res://Assets/BG Assets/Floor.PNG" id="2_o1ysd"]
 [ext_resource type="PackedScene" uid="uid://dnt8ug8rl1uvr" path="res://Player/player.tscn" id="3_uhedk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://y3oxywsxwx7d" path="res://UI/item_bar.tscn" id="9_u2guk"]
 [ext_resource type="PackedScene" uid="uid://bi58e4e7r71fr" path="res://Counter/Sink/sink.tscn" id="10_ovjj1"]
 [ext_resource type="PackedScene" uid="uid://cb1qn7pee6e1y" path="res://UI/OrderLine/order_line.tscn" id="11_cmr50"]
+[ext_resource type="PackedScene" uid="uid://daxf0iqr2uv54" path="res://Counter/DirtyPlateStack/dirty_plate_stack.tscn" id="13_wgpa7"]
 
 [node name="DebugLevel" type="Node2D"]
 
@@ -59,3 +60,6 @@ offset_left = -1016.0
 offset_top = -752.0
 offset_right = -1016.0
 offset_bottom = -752.0
+
+[node name="DirtyPlateStack" parent="." instance=ExtResource("13_wgpa7")]
+position = Vector2(512, 176)

@@ -63,7 +63,13 @@ var item_resources: Dictionary = {
 	ITEMS.KETCHUP: preload("res://Resources/Items/Sauces/Ketchup.tres"),
 	ITEMS.UPPER_BUN: preload("res://Resources/Items/UpperBun.tres"),
 	ITEMS.BOTTOM_BUN: preload("res://Resources/Items/BottomBun.tres"),
-	ITEMS.CHOPPED_CABBAGE: preload("res://Resources/Items/Vegetables/ChoppedCabbage.tres")
+	ITEMS.CHOPPED_CABBAGE: preload("res://Resources/Items/Vegetables/ChoppedCabbage.tres"),
+	ITEMS.CHOPPED_CHEESE: preload("res://Resources/Items/Vegetables/ChoppedCheese.tres"),
+	ITEMS.CHOPPED_TOMATO: preload("res://Resources/Items/Vegetables/ChoppedTomato.tres"),
+	ITEMS.CHOPPED_PICKLE: preload("res://Resources/Items/Vegetables/ChoppedPickle.tres"),
+	ITEMS.CHOPPED_MUSHROOM: preload("res://Resources/Items/Vegetables/ChoppedMushroom.tres"),
+	ITEMS.DIRTY_DISH: preload("res://Resources/Items/DirtyPlate.tres"),
+	ITEMS.CLEAN_DISH: preload("res://Resources/Items/CleanPlate.tres")
 }
 
 var inventory: Array[Item] = []
@@ -109,3 +115,7 @@ func refund_inventory():
 func clear_inventory():
 	while inventory:
 		remove_inventory()
+
+signal added_dirty_plate
+func add_dirty_plate():
+	emit_signal("added_dirty_plate")

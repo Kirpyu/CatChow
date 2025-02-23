@@ -29,14 +29,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41gy5"]
 size = Vector2(168, 296)
 
-[node name="Register" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_1yx5k")]
+[node name="Register" node_paths=PackedStringArray("dirty_plate_timer", "animated_sprite") instance=ExtResource("1_1yx5k")]
 script = ExtResource("2_7tvbj")
+dirty_plate_timer = NodePath("DirtyPlateTImer")
 counter_name = "Register"
 animated_sprite = NodePath("Sprite2D")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="DirtyPlateTImer" type="Timer" parent="." index="0"]
+one_shot = true
+
+[node name="Sprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_xv68l")
 
-[node name="Detector" parent="." index="1"]
+[node name="Detector" parent="." index="2"]
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_41gy5")
+
+[connection signal="timeout" from="DirtyPlateTImer" to="." method="_on_dirty_plate_timer_timeout"]

@@ -1,6 +1,7 @@
 extends Counter
 
 @export var burn_timer : Timer
+@export var texture_bar : TextureProgressBar
 
 enum STATES{
 	IDLE,

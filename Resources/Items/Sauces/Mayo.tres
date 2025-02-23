@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c87lst1e05fg3"]
+
+[ext_resource type="Script" path="res://Resources/Item.gd" id="1_jbmg7"]
+[ext_resource type="Texture2D" uid="uid://dpo8re4akhhlh" path="res://Assets/Ingredients/Mayo.png" id="2_irc8h"]
+
+[resource]
+script = ExtResource("1_jbmg7")
+texture = ExtResource("2_irc8h")
+item_name = 6
+is_infinite = true
+amount = 999

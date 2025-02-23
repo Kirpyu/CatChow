@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Vegetable" load_steps=3 format=3 uid="uid://djilxy7ksscna"]
+
+[ext_resource type="Script" path="res://Resources/Vegetable.gd" id="1_d67h2"]
+[ext_resource type="Texture2D" uid="uid://oq6drustvrgy" path="res://Assets/Ingredients/MushroomWhole.png" id="2_wm11x"]
+
+[resource]
+script = ExtResource("1_d67h2")
+texture = ExtResource("2_wm11x")
+item_name = 1
+is_infinite = true
+amount = 999

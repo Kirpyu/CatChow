@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Vegetable" load_steps=3 format=3 uid="uid://bh1gyt2iavuxq"]
+
+[ext_resource type="Script" path="res://Resources/Vegetable.gd" id="1_wu8o0"]
+[ext_resource type="Texture2D" uid="uid://qwjm61xniibb" path="res://Assets/Ingredients/TomatoWhole.png" id="2_6nq7m"]
+
+[resource]
+script = ExtResource("1_wu8o0")
+texture = ExtResource("2_6nq7m")
+item_name = 2
+is_infinite = true
+amount = 999
