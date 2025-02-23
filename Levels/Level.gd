@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	InventoryManager.reset_resources()
+	OrderManager.reset_order()
 	RoundManager.update_day(day)
 	add_storage()
 

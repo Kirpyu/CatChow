@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c62y6tg5d410f" path="res://UI/NextScreen/next_screen.tscn" id="14_qmi78"]
 [ext_resource type="PackedScene" uid="uid://bmh8hfn3aws38" path="res://Global/event_manager.tscn" id="15_gtc8v"]
 [ext_resource type="PackedScene" uid="uid://c1igbc7fuokf4" path="res://UI/black_out.tscn" id="15_xylml"]
-[ext_resource type="AudioStream" uid="uid://b05grp7qdi0rm" path="res://Assets/MainTheme/MamaMia.mp3" id="16_d3mcn"]
+[ext_resource type="AudioStream" uid="uid://bf0frc61m8obs" path="res://Assets/MainTheme/KitchenTroubles.mp3" id="18_cylm7"]
 
 [node name="Monday" type="Node2D"]
 script = ExtResource("1_87386")
@@ -80,7 +80,7 @@ offset_bottom = -752.0
 [node name="EventManager" parent="." instance=ExtResource("15_gtc8v")]
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_d3mcn")
+stream = ExtResource("18_cylm7")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true

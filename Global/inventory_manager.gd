@@ -84,7 +84,7 @@ func reset_resources():
 		var item : Item = item_resources[i]
 		if not item.is_infinite:
 			item.amount = 0
-		if item.item_name == ITEMS.DIRTY_DISH:
+		if item.item_name == ITEMS.CLEAN_DISH:
 			item.amount = 3
 			
 var daily_storage : Dictionary = {

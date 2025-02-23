@@ -34,6 +34,8 @@ var food_combos: Dictionary = {
 	FOOD.LETTUCE_TOMATO_DOUBLE_PATTY_BURGER: preload("res://Resources/Orders/LettuceTomatoDoublePatty.tres")
 }
 
+func reset_order():
+	orders = []
 
 var daily_menu: Dictionary = {
 	RoundManager.DAYS.MONDAY: [

@@ -17,7 +17,7 @@ var thresholds: Dictionary = {
 	DAYS.TUESDAY: 125,
 	DAYS.WEDNESDAY: 150,
 	DAYS.THURSDAY: 180,
-	DAYS.FRIDAY: 220
+	DAYS.FRIDAY: 200
 }
 
 var next_day: Dictionary = {
@@ -35,6 +35,7 @@ var get_day_scene: Dictionary = {
 	DAYS.WEDNESDAY: preload("res://Levels/Wednesday.tscn"),
 	DAYS.THURSDAY: preload("res://Levels/Thursday.tscn"),
 	DAYS.FRIDAY: preload("res://Levels/Friday.tscn"),
+	DAYS.ENDING_STAGE: preload("res://UI/final_comic.tscn"),
 }
 
 func get_next_scene():

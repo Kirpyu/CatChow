@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8vews5elrtyh"]
+
+[ext_resource type="Script" path="res://UI/Days.gd" id="1_dt1eb"]
+[ext_resource type="Texture2D" uid="uid://u4aw5ckc6dmv" path="res://Assets/StartScreen.png" id="1_ftvh6"]
+[ext_resource type="Theme" uid="uid://2jjqc3wtau36" path="res://Theme/GameTheme.tres" id="2_o8rrm"]
+[ext_resource type="AudioStream" uid="uid://d2mn3snsreux5" path="res://Assets/MainTheme/PrepPhase.mp3" id="4_5unrw"]
+
+[node name="Days" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dt1eb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ftvh6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.495
+anchor_top = 0.817
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 848.0
+offset_top = 408.0
+offset_right = 1319.0
+offset_bottom = 1606.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o8rrm")
+text = "MONDAY"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o8rrm")
+text = "TUESDAY"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o8rrm")
+text = "WEDNESDAY"
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o8rrm")
+text = "THURSDAY"
+
+[node name="Button5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o8rrm")
+text = "FRIDAY"
+
+[node name="Button6" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_o8rrm")
+text = "BACK"
+
+[node name="MainMenu" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_5unrw")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button6" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button6" to="." method="_on_button_6_pressed"]

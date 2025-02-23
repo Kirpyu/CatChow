@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://chk3yktxyy6l3"]
+
+[ext_resource type="Texture2D" uid="uid://csr7u7af1gl8e" path="res://Assets/Page1.JPG" id="1_kwb5p"]
+[ext_resource type="Script" path="res://UI/Comic/comic.gd" id="1_m374w"]
+[ext_resource type="Texture2D" uid="uid://b0u3iyjjhf31o" path="res://Assets/Page2.jpg" id="2_eikvb"]
+[ext_resource type="Texture2D" uid="uid://dmfqhmg1xh0bt" path="res://Assets/Page3.jpg" id="3_ebkne"]
+[ext_resource type="Theme" uid="uid://2jjqc3wtau36" path="res://Theme/GameTheme.tres" id="5_3vxpp"]
+[ext_resource type="AudioStream" uid="uid://d2mn3snsreux5" path="res://Assets/MainTheme/PrepPhase.mp3" id="6_gdf07"]
+
+[node name="Comic" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m374w")
+
+[node name="Page" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ebkne")
+
+[node name="Page2" type="TextureRect" parent="."]
+unique_name_in_owner = true
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_eikvb")
+
+[node name="Page1" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_kwb5p")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1728.0
+offset_top = 968.0
+offset_right = 2009.0
+offset_bottom = 1151.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("5_3vxpp")
+text = "NEXT"
+
+[node name="MainMenu" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_gdf07")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
