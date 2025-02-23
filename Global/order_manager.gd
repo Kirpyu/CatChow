@@ -19,6 +19,7 @@ enum FOOD{
 	TOMATO_LETTUCE_MUSTARD_BURGER,
 	LETTUCE_TOMATO_DOUBLE_PATTY_BURGER
 }
+
 var food_combos: Dictionary = {
 	FOOD.BASIC_BURGER: preload("res://Resources/Orders/BasicBurger.tres"),
 	FOOD.LETTUCE_BURGER: preload("res://Resources/Orders/LettuceBurger.tres"),
@@ -32,6 +33,7 @@ var food_combos: Dictionary = {
 	FOOD.TOMATO_LETTUCE_MUSTARD_BURGER: preload("res://Resources/Orders/TomatoLettuceMustardHamburger.tres"),
 	FOOD.LETTUCE_TOMATO_DOUBLE_PATTY_BURGER: preload("res://Resources/Orders/LettuceTomatoDoublePatty.tres")
 }
+
 
 var daily_menu: Dictionary = {
 	RoundManager.DAYS.MONDAY: [

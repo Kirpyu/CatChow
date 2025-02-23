@@ -7,4 +7,4 @@ func _on_restart_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_quit_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()

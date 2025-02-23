@@ -3,6 +3,7 @@ extends Node2D
 @export var day : RoundManager.DAYS
 
 func _ready() -> void:
+	InventoryManager.reset_resources()
 	RoundManager.update_day(day)
 	add_storage()
 

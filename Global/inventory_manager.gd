@@ -79,6 +79,14 @@ var item_resources: Dictionary = {
 	ITEMS.CLEAN_DISH: preload("res://Resources/Items/CleanPlate.tres"),
 }
 
+func reset_resources():
+	for i in item_resources:
+		var item : Item = item_resources[i]
+		if not item.is_infinite:
+			item.amount = 0
+		if item.item_name == ITEMS.DIRTY_DISH:
+			item.amount = 3
+			
 var daily_storage : Dictionary = {
 	RoundManager.DAYS.TUTORIAL_STAGE: [
 		
