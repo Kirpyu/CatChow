@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi58e4e7r71fr"]
+[gd_scene load_steps=12 format=3 uid="uid://bi58e4e7r71fr"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_vp7br"]
 [ext_resource type="Texture2D" uid="uid://y1urht8e5hqj" path="res://Assets/Counters/Sink/SinkDefault.png" id="2_0wlql"]
 [ext_resource type="Script" path="res://Counter/Sink/sink.gd" id="2_7xwid"]
 [ext_resource type="Texture2D" uid="uid://dk5xgo4shgpig" path="res://Assets/Counters/Sink/SinkWashing.png" id="3_gr1vh"]
 [ext_resource type="PackedScene" uid="uid://v40knt2daal7" path="res://UI/ProgressBar/progress_bar.tscn" id="5_3n0m5"]
+[ext_resource type="AudioStream" uid="uid://0nyi61k2cewe" path="res://Assets/Sound Effects/HandWash.mp3" id="6_b3p1u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4wth"]
 atlas = ExtResource("2_0wlql")
@@ -67,3 +68,9 @@ offset_top = -312.0
 offset_right = 134.0
 offset_bottom = -262.0
 timer = NodePath("../WorkTimer")
+
+[node name="WaterRunning" type="AudioStreamPlayer2D" parent="." index="4"]
+unique_name_in_owner = true
+stream = ExtResource("6_b3p1u")
+volume_db = -15.0
+stream_paused = true

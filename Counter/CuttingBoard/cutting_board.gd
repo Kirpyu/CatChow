@@ -7,10 +7,21 @@ enum STATES{
 
 var current_state: STATES = STATES.IDLE
 var current_vegetable: Vegetable
+var player: Player
 
 func _ready() -> void:
 	animated_sprite.play("default")
+	player = get_tree().get_first_node_in_group("player")
 
+func _process(_delta: float) -> void:
+	if current_state == STATES.WORKING and player.velocity != Vector2(0,0):
+		cancel_task()
+		current_state = STATES.IDLE
+		match_animation()
+
+func cancel_task():
+	work_timer.stop()
+	print("STOP")
 func do_task():
 	if current_state == STATES.WORKING:
 		print("Working")
@@ -40,5 +51,7 @@ func match_animation() -> void:
 	match current_state:
 		STATES.IDLE:
 			animated_sprite.play("default")
+			%Chopping.stop()
 		STATES.WORKING:
 			animated_sprite.play("working")
+			%Chopping.play()

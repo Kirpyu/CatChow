@@ -9,14 +9,13 @@ var stack_pos = Vector2(-57, -115)
 @export var stack_area: Control
 var stack_count = 0
 var item_stack: Array[TextureRect] = []
-
 func _ready() -> void:
 	InventoryManager.connect("updated_inventory", update_inventory)
 	InventoryManager.connect("removed_inventory", remove_inventory)
 
 func _physics_process(delta: float) -> void:
-	var walk = Input.get_axis("left", "right")
-	position.x += walk * speed
+	velocity = Vector2(Input.get_axis("left", "right"), 0)
+	position += velocity * speed
 	
 	if Input.is_action_just_pressed("space"):
 		if current_counter:

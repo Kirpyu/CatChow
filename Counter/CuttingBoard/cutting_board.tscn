@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://co4i3b258l3kx"]
+[gd_scene load_steps=12 format=3 uid="uid://co4i3b258l3kx"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_w3kn2"]
 [ext_resource type="Script" path="res://Counter/CuttingBoard/cutting_board.gd" id="2_td8dt"]
 [ext_resource type="Texture2D" uid="uid://bxg71jxi2r1gt" path="res://Assets/Counters/CuttingBoard/ChopDefault.png" id="3_p5ald"]
 [ext_resource type="Texture2D" uid="uid://dskxfacsrbbu6" path="res://Assets/Counters/CuttingBoard/ChopChopping.png" id="4_vlnrf"]
 [ext_resource type="PackedScene" uid="uid://v40knt2daal7" path="res://UI/ProgressBar/progress_bar.tscn" id="5_4pgib"]
+[ext_resource type="AudioStream" uid="uid://bo1ejeosiyllo" path="res://Assets/Sound Effects/VeggieChop.mp3" id="6_v7n2r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_csnum"]
 atlas = ExtResource("3_p5ald")
@@ -67,3 +68,10 @@ offset_top = -280.0
 offset_right = 134.0
 offset_bottom = -230.0
 timer = NodePath("../WorkTimer")
+
+[node name="Chopping" type="AudioStreamPlayer2D" parent="." index="4"]
+unique_name_in_owner = true
+stream = ExtResource("6_v7n2r")
+volume_db = 0.99
+pitch_scale = 0.72
+parameters/looping = true

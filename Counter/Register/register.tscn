@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgxweto3lui5v"]
+[gd_scene load_steps=9 format=3 uid="uid://cgxweto3lui5v"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_1yx5k"]
 [ext_resource type="Script" path="res://Counter/Register/register.gd" id="2_7tvbj"]
 [ext_resource type="Texture2D" uid="uid://12baygbrlqet" path="res://Assets/Counters/CashRegister.png" id="2_ah4li"]
+[ext_resource type="AudioStream" uid="uid://dhjgmukwex8l2" path="res://Assets/Sound Effects/SetPlate2.mp3" id="4_x7spl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5kha"]
 atlas = ExtResource("2_ah4li")
@@ -44,5 +45,9 @@ sprite_frames = SubResource("SpriteFrames_xv68l")
 [node name="Detector" parent="." index="2"]
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_41gy5")
+
+[node name="GiveOrder" type="AudioStreamPlayer2D" parent="." index="4"]
+unique_name_in_owner = true
+stream = ExtResource("4_x7spl")
 
 [connection signal="timeout" from="DirtyPlateTImer" to="." method="_on_dirty_plate_timer_timeout"]

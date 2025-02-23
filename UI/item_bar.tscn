@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://y3oxywsxwx7d"]
+[gd_scene load_steps=15 format=3 uid="uid://y3oxywsxwx7d"]
 
 [ext_resource type="Script" path="res://UI/item_bar.gd" id="1_j16o4"]
 [ext_resource type="Texture2D" uid="uid://iix73ophkb23" path="res://Assets/UI Assets/ToggleButton.PNG" id="2_xohfy"]
@@ -10,6 +10,9 @@
 [ext_resource type="Resource" uid="uid://dyj7i68qsid5e" path="res://Resources/Items/BottomBun.tres" id="7_ufwvp"]
 [ext_resource type="Resource" uid="uid://x686ruygqr87" path="res://Resources/Items/Vegetables/WholeCabbage.tres" id="9_iymik"]
 [ext_resource type="Resource" uid="uid://ca2cc0sj37uoh" path="res://Resources/Items/CleanPlate.tres" id="9_s2eyp"]
+[ext_resource type="Resource" uid="uid://vh1il8gdvgg4" path="res://Resources/Items/Vegetables/WholeCheese.tres" id="11_y2wf4"]
+[ext_resource type="Resource" uid="uid://bovrcnx84307a" path="res://Resources/Items/Sauces/Ketchup.tres" id="12_401lr"]
+[ext_resource type="AudioStream" uid="uid://c30oulhahsghv" path="res://Assets/Sound Effects/PickUpItem.mp3" id="13_vjrvu"]
 
 [sub_resource type="Theme" id="Theme_f51p6"]
 
@@ -84,6 +87,14 @@ item = ExtResource("9_s2eyp")
 layout_mode = 2
 item = ExtResource("9_iymik")
 
+[node name="ItemButton6" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
+layout_mode = 2
+item = ExtResource("11_y2wf4")
+
+[node name="ItemButton7" parent="HBoxContainer/TextureRect/ScrollContainer/Buttons" instance=ExtResource("4_hrwxo")]
+layout_mode = 2
+item = ExtResource("12_401lr")
+
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 10)
 layout_mode = 1
@@ -101,6 +112,10 @@ grow_vertical = 0
 scale = Vector2(0.5, 0.5)
 theme = ExtResource("4_r213e")
 text = "RESET"
+
+[node name="ButtonClicked" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_vjrvu")
 
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

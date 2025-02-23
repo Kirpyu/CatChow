@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://snujrhcr1jtj"
+path="res://.godot/imported/AngryHmm.mp3-92da49848027f52593347c7b60ab94e2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/AngryHmm.mp3"
+dest_files=["res://.godot/imported/AngryHmm.mp3-92da49848027f52593347c7b60ab94e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

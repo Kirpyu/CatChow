@@ -7,7 +7,7 @@
 radius = 49.0
 height = 156.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("stack_area")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("stack_area") groups=["player"]]
 script = ExtResource("1_ku3mr")
 speed = 10.0
 stack_area = NodePath("Stack")

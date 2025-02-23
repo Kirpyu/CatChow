@@ -15,6 +15,7 @@ slip_timer = NodePath("SlipTimer")
 slips = NodePath("Slips")
 
 [node name="SlipTimer" type="Timer" parent="."]
+wait_time = 15.0
 autostart = true
 
 [node name="OrderLine" type="Sprite2D" parent="."]

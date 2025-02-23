@@ -8,11 +8,26 @@ var orders: Array[Array]
 
 enum FOOD{
 	BASIC_BURGER,
-	LETTUCE_BURGER
+	LETTUCE_BURGER,
+	CHEESE_BURGER,
+	CHEESE_LETTUCE_BURGER,
+	KETCHUP_BURGER
 }
 var food_combos: Dictionary = {
 	FOOD.BASIC_BURGER: preload("res://Resources/Orders/BasicBurger.tres"),
-	FOOD.LETTUCE_BURGER: preload("res://Resources/Orders/LettuceBurger.tres")
+	FOOD.LETTUCE_BURGER: preload("res://Resources/Orders/LettuceBurger.tres"),
+	FOOD.CHEESE_BURGER: preload("res://Resources/Orders/CheeseBurger.tres"),
+	FOOD.CHEESE_LETTUCE_BURGER: preload("res://Resources/Orders/CheeseLettuceBurger.tres"),
+	FOOD.KETCHUP_BURGER: preload("res://Resources/Orders/KetchupBurger.tres")
+}
+
+var daily_menu: Dictionary = {
+	RoundManager.DAYS.MONDAY: [
+		FOOD.BASIC_BURGER, FOOD.LETTUCE_BURGER, FOOD.CHEESE_BURGER, FOOD.CHEESE_LETTUCE_BURGER, FOOD.KETCHUP_BURGER
+	],
+	RoundManager.DAYS.TUESDAY: [
+		FOOD.BASIC_BURGER, FOOD.LETTUCE_BURGER, FOOD.CHEESE_BURGER, FOOD.CHEESE_LETTUCE_BURGER, FOOD.KETCHUP_BURGER
+	]
 }
 
 func add_order(order: Order):

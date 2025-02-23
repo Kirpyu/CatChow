@@ -34,6 +34,7 @@ func _on_texture_button_pressed() -> void:
 
 func on_item_button_pressed(button: ItemButton):
 	InventoryManager.add_inventory(button.item)
+	%ButtonClicked.play()
 	if not button.item.is_infinite:
 		button.item.amount -= 1
 		InventoryManager.remove_storage(button.item)

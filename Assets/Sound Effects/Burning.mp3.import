@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7r7blc5svmw8"
+path="res://.godot/imported/Burning.mp3-5a677e2b1688f08655f0df3b464e68d5.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/Burning.mp3"
+dest_files=["res://.godot/imported/Burning.mp3-5a677e2b1688f08655f0df3b464e68d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

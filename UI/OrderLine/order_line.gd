@@ -7,13 +7,14 @@ var starting_pos = Vector2(75,200)
 var slip_amt = 0
 @export var slip_timer : Timer
 @export var slips: Control
+var base_slip_timer : float
+var current_day : RoundManager.DAYS
 
 func _ready() -> void:
 	OrderManager.connect("added_order", add_slip)
 	OrderManager.connect("completed_order", complete_slip)
-	OrderManager.add_order(OrderManager.food_combos[OrderManager.FOOD.BASIC_BURGER])
-	OrderManager.add_order(OrderManager.food_combos[OrderManager.FOOD.LETTUCE_BURGER])
-	OrderManager.add_order(OrderManager.food_combos[OrderManager.FOOD.BASIC_BURGER])
+	base_slip_timer = slip_timer.wait_time
+	current_day = RoundManager.current_day
 
 func add_slip(order: Order):
 	var temp_slip: OrderSlip = load("res://UI/OrderSlip/order_slip.tscn").instantiate()
@@ -47,5 +48,7 @@ func error_message():
 	print("Error: Popped wrong slip index")
 
 func _on_slip_timer_timeout() -> void:
-	pass # Replace with function body.
-#	set next cooldown to random
+	var rand_order = OrderManager.daily_menu[current_day].pick_random()
+	OrderManager.add_order(OrderManager.food_combos[rand_order])
+	slip_timer.wait_time = randi_range(base_slip_timer - 3, base_slip_timer + 3)
+	slip_timer.start()

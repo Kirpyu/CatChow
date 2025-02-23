@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=3 uid="uid://bay2gd0fopdf0"]
+
+[ext_resource type="Texture2D" uid="uid://cxtxfb16angd0" path="res://Assets/BG Assets/Wall.PNG" id="1_pkfai"]
+[ext_resource type="Texture2D" uid="uid://ctuk2ohvjl0gw" path="res://Assets/BG Assets/Floor.PNG" id="2_dwgaa"]
+[ext_resource type="PackedScene" uid="uid://dnt8ug8rl1uvr" path="res://Player/player.tscn" id="3_s0sxw"]
+[ext_resource type="Texture2D" uid="uid://ba2cfuvtame6w" path="res://Assets/BG Assets/Countertop.PNG" id="4_bqdsf"]
+[ext_resource type="PackedScene" uid="uid://bwspr88oyqm5u" path="res://Counter/Stovetop/stovetop.tscn" id="5_p5866"]
+[ext_resource type="PackedScene" uid="uid://dlbvyne4kh1i7" path="res://UI/CharacterInterface/character_interace.tscn" id="6_3reut"]
+[ext_resource type="PackedScene" uid="uid://y3oxywsxwx7d" path="res://UI/item_bar.tscn" id="7_smpfa"]
+[ext_resource type="PackedScene" uid="uid://cgxweto3lui5v" path="res://Counter/Register/register.tscn" id="8_xpauu"]
+[ext_resource type="PackedScene" uid="uid://co4i3b258l3kx" path="res://Counter/CuttingBoard/cutting_board.tscn" id="9_whkgi"]
+[ext_resource type="PackedScene" uid="uid://bi58e4e7r71fr" path="res://Counter/Sink/sink.tscn" id="10_8swms"]
+[ext_resource type="PackedScene" uid="uid://cb1qn7pee6e1y" path="res://UI/OrderLine/order_line.tscn" id="11_qnpo4"]
+[ext_resource type="PackedScene" uid="uid://daxf0iqr2uv54" path="res://Counter/DirtyPlateStack/dirty_plate_stack.tscn" id="12_tfaqa"]
+[ext_resource type="PackedScene" uid="uid://bmh8hfn3aws38" path="res://Global/event_manager.tscn" id="13_58tt8"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Wall" type="Sprite2D" parent="."]
+texture = ExtResource("1_pkfai")
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture = ExtResource("2_dwgaa")
+
+[node name="Player" parent="." instance=ExtResource("3_s0sxw")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.81, 0.81)
+
+[node name="Countertop" type="Sprite2D" parent="."]
+texture = ExtResource("4_bqdsf")
+
+[node name="Stovetop" parent="." instance=ExtResource("5_p5866")]
+position = Vector2(-960, 176)
+
+[node name="Stovetop2" parent="." instance=ExtResource("5_p5866")]
+position = Vector2(-752, 208)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CharacterInterace" parent="CanvasLayer" instance=ExtResource("6_3reut")]
+
+[node name="IngredientBar" parent="CanvasLayer" instance=ExtResource("7_smpfa")]
+
+[node name="Register" parent="." instance=ExtResource("8_xpauu")]
+position = Vector2(0, 80)
+
+[node name="CuttingBoard" parent="." instance=ExtResource("9_whkgi")]
+position = Vector2(-384, 208)
+
+[node name="Sink" parent="." instance=ExtResource("10_8swms")]
+position = Vector2(824, 200)
+
+[node name="OrderLine2" parent="." instance=ExtResource("11_qnpo4")]
+offset_left = -1016.0
+offset_top = -752.0
+offset_right = -1016.0
+offset_bottom = -752.0
+
+[node name="DirtyPlateStack" parent="." instance=ExtResource("12_tfaqa")]
+position = Vector2(512, 176)
+
+[node name="EventManager" parent="." instance=ExtResource("13_58tt8")]

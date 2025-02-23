@@ -6,11 +6,13 @@ func _ready() -> void:
 	OrderManager.connect("gained_coins", add_floating_text)
 
 func do_task():
+	print(OrderManager.orders.size())
 	for i in OrderManager.orders.size():
 		if InventoryManager.inventory_names == OrderManager.orders[i]:
 			OrderManager.complete_order(i)
 			InventoryManager.clear_inventory()
 			dirty_plate_timer.start()
+			%GiveOrder.play()
 			return
 
 func add_floating_text(amt: int):

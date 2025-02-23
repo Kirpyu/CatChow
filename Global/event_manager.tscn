@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmh8hfn3aws38"]
+
+[ext_resource type="Script" path="res://Global/event_manager.gd" id="1_yriro"]
+
+[node name="EventManager" type="Node2D" node_paths=PackedStringArray("event_timer")]
+script = ExtResource("1_yriro")
+event_timer = NodePath("EventTimer")
+
+[node name="EventTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="EventTimer" to="." method="_on_event_timer_timeout"]

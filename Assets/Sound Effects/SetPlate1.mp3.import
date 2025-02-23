@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qxe0wccx3l2v"
+path="res://.godot/imported/SetPlate1.mp3-33e4221b71eb2416ef4872827698e606.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/SetPlate1.mp3"
+dest_files=["res://.godot/imported/SetPlate1.mp3-33e4221b71eb2416ef4872827698e606.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

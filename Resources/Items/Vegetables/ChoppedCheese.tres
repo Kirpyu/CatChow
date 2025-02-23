@@ -8,4 +8,4 @@ script = ExtResource("1_oyat3")
 texture = ExtResource("2_ule8a")
 item_name = 18
 is_infinite = false
-amount = 999
+amount = 0

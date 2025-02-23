@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bwspr88oyqm5u" path="res://Counter/Stovetop/stovetop.tscn" id="4_ydlru"]
 [ext_resource type="Texture2D" uid="uid://cxtxfb16angd0" path="res://Assets/BG Assets/Wall.PNG" id="5_fnwpm"]
 [ext_resource type="Texture2D" uid="uid://ba2cfuvtame6w" path="res://Assets/BG Assets/Countertop.PNG" id="6_2hsop"]
-[ext_resource type="Texture2D" uid="uid://bnrfscrtioxd5" path="res://Assets/BG Assets/OrderLine.png" id="8_6ud0l"]
 [ext_resource type="PackedScene" uid="uid://dlbvyne4kh1i7" path="res://UI/CharacterInterface/character_interace.tscn" id="8_011co"]
 [ext_resource type="PackedScene" uid="uid://cgxweto3lui5v" path="res://Counter/Register/register.tscn" id="8_whcrm"]
 [ext_resource type="PackedScene" uid="uid://co4i3b258l3kx" path="res://Counter/CuttingBoard/cutting_board.tscn" id="9_kcked"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bi58e4e7r71fr" path="res://Counter/Sink/sink.tscn" id="10_ovjj1"]
 [ext_resource type="PackedScene" uid="uid://cb1qn7pee6e1y" path="res://UI/OrderLine/order_line.tscn" id="11_cmr50"]
 [ext_resource type="PackedScene" uid="uid://daxf0iqr2uv54" path="res://Counter/DirtyPlateStack/dirty_plate_stack.tscn" id="13_wgpa7"]
+[ext_resource type="PackedScene" uid="uid://bmh8hfn3aws38" path="res://Global/event_manager.tscn" id="14_rf2gt"]
 
 [node name="DebugLevel" type="Node2D"]
 
@@ -29,10 +29,6 @@ zoom = Vector2(0.81, 0.81)
 
 [node name="Countertop" type="Sprite2D" parent="."]
 texture = ExtResource("6_2hsop")
-
-[node name="OrderLine" type="Sprite2D" parent="."]
-position = Vector2(0, 112)
-texture = ExtResource("8_6ud0l")
 
 [node name="Stovetop" parent="." instance=ExtResource("4_ydlru")]
 position = Vector2(-960, 176)
@@ -63,3 +59,5 @@ offset_bottom = -752.0
 
 [node name="DirtyPlateStack" parent="." instance=ExtResource("13_wgpa7")]
 position = Vector2(512, 176)
+
+[node name="EventManager" parent="." instance=ExtResource("14_rf2gt")]

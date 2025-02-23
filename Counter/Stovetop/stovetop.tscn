@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwspr88oyqm5u"]
+[gd_scene load_steps=23 format=3 uid="uid://bwspr88oyqm5u"]
 
 [ext_resource type="PackedScene" uid="uid://bu577clpl7mww" path="res://Counter/counter.tscn" id="1_s7yva"]
 [ext_resource type="Script" path="res://Counter/Stovetop/stovetop.gd" id="2_gw60g"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c2vtbrwng6b0n" path="res://Assets/Counters/Stove/burntPatty.png" id="3_ukplv"]
 [ext_resource type="Texture2D" uid="uid://bu2fqeg15oqyo" path="res://Assets/Counters/Stove/cookedPatty.png" id="4_qcl6h"]
 [ext_resource type="PackedScene" uid="uid://v40knt2daal7" path="res://UI/ProgressBar/progress_bar.tscn" id="7_6ics6"]
+[ext_resource type="AudioStream" uid="uid://ce372pdejnxrg" path="res://Assets/Sound Effects/Sizzling1.mp3" id="8_to6ap"]
+[ext_resource type="AudioStream" uid="uid://b7r7blc5svmw8" path="res://Assets/Sound Effects/Burning.mp3" id="9_vhmbf"]
+[ext_resource type="AudioStream" uid="uid://dlhnb6ylovcqy" path="res://Assets/Sound Effects/LightFlicker.mp3" id="10_vcx6q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fy48d"]
 atlas = ExtResource("3_ukplv")
@@ -108,9 +111,10 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Stovetop" node_paths=PackedStringArray("burn_timer", "animated_sprite") instance=ExtResource("1_s7yva")]
+[node name="Stovetop" node_paths=PackedStringArray("burn_timer", "debuff_timer", "animated_sprite") instance=ExtResource("1_s7yva")]
 script = ExtResource("2_gw60g")
 burn_timer = NodePath("BurnTimer")
+debuff_timer = NodePath("DebuffTimer")
 counter_name = "Stovetop"
 animated_sprite = NodePath("Sprite2D")
 
@@ -123,21 +127,23 @@ frame_progress = 0.0221687
 position = Vector2(1.5, -104.5)
 
 [node name="WorkTimer" parent="." index="2"]
-wait_time = 1.5
+wait_time = 7.5
 one_shot = true
 
 [node name="BurnTimer" type="Timer" parent="." index="3"]
 wait_time = 3.0
 one_shot = true
 
-[node name="TextureProgressBar" parent="." index="4" node_paths=PackedStringArray("timer") instance=ExtResource("7_6ics6")]
+[node name="WorkBar" parent="." index="4" node_paths=PackedStringArray("timer") instance=ExtResource("7_6ics6")]
+unique_name_in_owner = true
 offset_left = -136.0
 offset_top = -256.0
 offset_right = 134.0
 offset_bottom = -206.0
 timer = NodePath("../WorkTimer")
 
-[node name="TextureProgressBar2" parent="." index="5" node_paths=PackedStringArray("timer") instance=ExtResource("7_6ics6")]
+[node name="BurnBar" parent="." index="5" node_paths=PackedStringArray("timer") instance=ExtResource("7_6ics6")]
+unique_name_in_owner = true
 offset_left = -136.0
 offset_top = -256.0
 offset_right = 134.0
@@ -147,4 +153,25 @@ tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
 timer = NodePath("../BurnTimer")
 
+[node name="DebuffTimer" type="Timer" parent="." index="6"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Cooking" type="AudioStreamPlayer2D" parent="." index="7"]
+unique_name_in_owner = true
+stream = ExtResource("8_to6ap")
+volume_db = -15.0
+
+[node name="Burning" type="AudioStreamPlayer2D" parent="." index="8"]
+unique_name_in_owner = true
+stream = ExtResource("9_vhmbf")
+volume_db = -25.0
+pitch_scale = 1.5
+
+[node name="Debuffed" type="AudioStreamPlayer2D" parent="." index="9"]
+unique_name_in_owner = true
+stream = ExtResource("10_vcx6q")
+volume_db = -5.0
+
 [connection signal="timeout" from="BurnTimer" to="." method="_on_burn_timer_timeout"]
+[connection signal="timeout" from="DebuffTimer" to="." method="_on_debuff_timer_timeout"]

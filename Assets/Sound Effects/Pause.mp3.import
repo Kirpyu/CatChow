@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0ytkaa6rcpfd"
+path="res://.godot/imported/Pause.mp3-c73d8101558a635d4825dad6b7db99f2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/Pause.mp3"
+dest_files=["res://.godot/imported/Pause.mp3-c73d8101558a635d4825dad6b7db99f2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

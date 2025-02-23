@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InventoryManager="*res://Global/inventory_manager.gd"
 OrderManager="*res://Global/order_manager.gd"
+RoundManager="*res://Global/round_manager.gd"
 
 [display]
 
@@ -39,6 +40,11 @@ folder_colors={
 "res://Theme/": "gray",
 "res://UI/": "pink"
 }
+
+[global_group]
+
+player=""
+debuffable=""
 
 [input]
 

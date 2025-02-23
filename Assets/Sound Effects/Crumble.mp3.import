@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crgsm0fgw74jj"
+path="res://.godot/imported/Crumble.mp3-daaf484e406f21e825475174da11d398.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/Crumble.mp3"
+dest_files=["res://.godot/imported/Crumble.mp3-daaf484e406f21e825475174da11d398.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

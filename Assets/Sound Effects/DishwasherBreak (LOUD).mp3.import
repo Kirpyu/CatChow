@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2n5yek8xanyn"
+path="res://.godot/imported/DishwasherBreak (LOUD).mp3-278baaf2853b141c29583f247841a6b8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound Effects/DishwasherBreak (LOUD).mp3"
+dest_files=["res://.godot/imported/DishwasherBreak (LOUD).mp3-278baaf2853b141c29583f247841a6b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
